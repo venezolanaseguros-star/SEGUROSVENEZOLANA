@@ -14,7 +14,38 @@
     </nav>
 
     <div class="container">
-        
+       ¡Excelente! Ya has identificado y verificado la coincidencia. No tienes ningún error de ID en ese campo.
+
+La línea en tu script.js:
+
+JavaScript
+
+document.getElementById('v-codigo').value = datos.vehiculo.codigo;
+Y la línea en tu index.html:
+
+HTML
+
+<input type="text" class="custom-input" id="v-codigo" readonly>
+son perfectamente correctas y están sincronizadas.
+
+El ID (v-codigo) es idéntico en ambos archivos. Si tu página sigue en blanco, el problema no está en este campo, sino en un punto de fallo anterior o posterior en tu index.html.
+
+🚨 El Punto de Fallo Final
+Dado que la sincronización de IDs parece correcta en el campo de código, el problema de que los datos estén en blanco se debe a que la sección principal de visualización de datos no se está activando o los scripts no se están cargando.
+
+Por favor, revisa tu index.html una última vez, centrándote en estos dos puntos cruciales:
+
+1. 🔗 Carga Correcta de los Scripts
+Asegúrate de que estas dos líneas estén presentes y correctas al final de tu index.html (justo antes de la etiqueta </body>). Si una letra o un punto está mal, el script.js no se ejecuta.
+
+HTML
+
+<script src="./datos.js"></script>
+<script src="./script.js"></script>
+
+<div id="info-container" style="display: none;">
+    
+    </div>
         <h1 class="main-title" id="titulo-contrato">Cargando...</h1>
 
         <div class="input-wrapper select-wrapper">
