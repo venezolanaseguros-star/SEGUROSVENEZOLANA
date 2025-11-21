@@ -3,47 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificación de Contrato</title>
-    <link rel="stylesheet" href="./styles.css">
+    <title>Contrato de Servicio</title>
+    <link rel="stylesheet" href="./styles.css"> 
 </head>
 <body>
+    <div class="header-menu">
+        <button class="menu-button">☰</button>
+    </div>
 
     <div class="main-container">
 
-        <h1 id="titulo-contrato">Cargando Contrato...</h1>
+        <h1 class="contract-title" id="titulo-contrato">Contrato #Cargando</h1>
         
-        <div id="error-message" style="display: none; color: red; font-weight: bold; padding: 20px; border: 1px solid red;">
+        <div id="error-message" style="display: none; color: red; text-align: center; margin: 20px; font-weight: bold;">
             El código de contrato proporcionado no existe en nuestra base de datos.
         </div>
 
         <div id="info-container" style="display: none;">
+
+            <div class="data-input-group">
+                <span class="input-icon">📄</span>
+                <input type="text" id="carga-value" class="styled-input select-style" readonly>
+            </div>
             
-            <section class="data-section">
-                <input type="text" id="carga-value" readonly>
-            </section>
+            <h2 class="section-title">DATOS DEL VEHÍCULO</h2>
+            
+            <div class="data-input-group">
+                <input type="text" id="v-codigo" class="styled-input" readonly>
+                <input type="text" id="v-tipo" class="styled-input" readonly>
+                <input type="text" id="v-placa" class="styled-input" readonly>
+                <input type="text" id="v-carroceria" class="styled-input" readonly>
+                <input type="text" id="v-color" class="styled-input" readonly>
+                <input type="text" id="v-ejes" class="styled-input" readonly>
+            </div>
 
-            <section class="data-section">
-                <input type="text" id="v-codigo" readonly>
-                <input type="text" id="v-tipo" readonly>
-                <input type="text" id="v-placa" readonly>
-                <input type="text" id="v-carroceria" readonly>
-                <input type="text" id="v-color" readonly>
-                <input type="text" id="v-ejes" readonly>
-            </section>
+            <h2 class="section-title">DATOS DEL CARNET DE CIRCULACIÓN</h2>
 
-            <section class="data-section">
-                <input type="text" id="c-placa" readonly>
-                <input type="text" id="c-marca" readonly>
-                <input type="text" id="c-modelo" readonly>
-                <input type="text" id="c-anio" readonly>
-            </section>
+            <div class="data-input-group">
+                <input type="text" id="c-placa" class="styled-input" readonly>
+                <input type="text" id="c-marca" class="styled-input" readonly>
+                <input type="text" id="c-modelo" class="styled-input" readonly>
+                <input type="text" id="c-anio" class="styled-input" readonly>
+            </div>
 
-            <section class="actions-section">
-                <button onclick="descargarPDF('contrato')">Descargar Contrato</button>
-                <button onclick="descargarPDF('carnet')">Descargar Carnet</button>
-            </section>
+            <div class="action-buttons-group">
+                <button onclick="descargarPDF('contrato')" class="btn-download primary-btn">
+                    DESCARGAR CONTRATO
+                </button>
+                <button onclick="descargarPDF('carnet')" class="btn-download primary-btn">
+                    DESCARGAR CARNET
+                </button>
+                <button class="btn-volver secondary-btn">
+                    VOLVER
+                </button>
+            </div>
+
         </div> 
-    </div> 
+        </div> 
 
     <script src="./datos.js"></script>
     <script src="./script.js"></script>
