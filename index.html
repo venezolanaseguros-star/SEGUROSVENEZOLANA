@@ -3,63 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contrato de Servicio</title>
+    <title>Consulta de Contrato</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="header-menu">
-        <button class="menu-button">☰</button>
-    </div>
 
-    <div class="main-container">
+    <nav class="navbar">
+        <i class="fa-solid fa-bars menu-icon"></i>
+    </nav>
 
-        <h1 class="contract-title" id="titulo-contrato">Contrato #Cargando</h1>
+    <div class="container">
         
-        <div id="error-message" style="display: none; color: red; text-align: center; margin: 20px; font-weight: bold;">
-            El código de contrato proporcionado no existe en nuestra base de datos.
+        <h1 class="main-title" id="titulo-contrato">Cargando...</h1>
+
+        <div class="input-wrapper select-wrapper">
+            <i class="fa-solid fa-file-invoice icon-left"></i>
+            <select class="custom-input select-input" id="tipo-carga" disabled>
+                <option value="mas_5">Carga mas de 5 tm</option>
+                <option value="liviana">Carga liviana</option>
+            </select>
+            <i class="fa-solid fa-chevron-down icon-arrow"></i>
         </div>
 
-        <div id="info-container" style="display: none;">
+        <div class="section-label">DATOS DEL VEHÍCULO</div>
+        <form id="form-vehiculo">
+            <input type="text" class="custom-input" id="v-codigo" readonly>
+            <input type="text" class="custom-input" id="v-tipo" readonly>
+            <input type="text" class="custom-input" id="v-placa" readonly>
+            <input type="text" class="custom-input" id="v-carroceria" readonly>
+            <input type="text" class="custom-input" id="v-color" readonly>
+            <input type="text" class="custom-input" id="v-ejes" readonly>
+        </form>
 
-            <div class="data-input-group">
-                <span class="input-icon">📄</span>
-                <input type="text" id="carga-value" class="styled-input select-style" readonly>
-            </div>
-            
-            <h2 class="section-title">DATOS DEL VEHÍCULO</h2>
-            
-            <div class="data-input-group">
-                <input type="text" id="v-codigo" class="styled-input" readonly>
-                <input type="text" id="v-tipo" class="styled-input" readonly>
-                <input type="text" id="v-placa" class="styled-input" readonly>
-                <input type="text" id="v-carroceria" class="styled-input" readonly>
-                <input type="text" id="v-color" class="styled-input" readonly>
-                <input type="text" id="v-ejes" class="styled-input" readonly>
-            </div>
+        <div class="section-label mt-medium">DATOS DEL CARNET DE CIRCULACIÓN</div>
+        <form id="form-carnet">
+            <input type="text" class="custom-input" id="c-placa" readonly>
+            <input type="text" class="custom-input" id="c-marca" readonly>
+            <input type="text" class="custom-input" id="c-modelo" readonly>
+            <input type="text" class="custom-input" id="c-anio" readonly>
+        </form>
 
-            <h2 class="section-title">DATOS DEL CARNET DE CIRCULACIÓN</h2>
+        <div class="action-buttons">
+            <button onclick="descargarPDF('contrato')" class="TU_CLASE_DE_BOTON">DESCARGAR CONTRATO</button>
+            <button onclick="descargarPDF('carnet')" class="TU_CLASE_DE_BOTON">DESCARGAR CARNET</button>
+            <button class="btn btn-dark" onclick="volver()">VOLVER</button>
+        </div>
 
-            <div class="data-input-group">
-                <input type="text" id="c-placa" class="styled-input" readonly>
-                <input type="text" id="c-marca" class="styled-input" readonly>
-                <input type="text" id="c-modelo" class="styled-input" readonly>
-                <input type="text" id="c-anio" class="styled-input" readonly>
-            </div>
-
-            <div class="action-buttons-group">
-                <button onclick="descargarPDF('contrato')" class="btn-download primary-btn">
-                    DESCARGAR CONTRATO
-                </button>
-                <button onclick="descargarPDF('carnet')" class="btn-download primary-btn">
-                    DESCARGAR CARNET
-                </button>
-                <button class="btn-volver secondary-btn">
-                    VOLVER
-                </button>
-            </div>
-
-        </div> 
-        </div> 
+        <footer class="footer">
+            <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
+            <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
+        </footer>
+    </div>
 
     <script src="./datos.js"></script>
     <script src="./script.js"></script>
