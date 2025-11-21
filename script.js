@@ -21,35 +21,36 @@ function obtenerIdContrato() {
 
 
 // ------------------------------------------------------------------
-// 2. FUNCIÓN PARA CARGAR Y MOSTRAR LOS DATOS
+// 2. FUNCIÓN PARA CARGAR Y MOSTRAR LOS DATOS (VERSIÓN FINAL)
 // ------------------------------------------------------------------
 function cargarDatos(id, datos) {
     // Guarda los datos del contrato cargado en la variable global
     datosContratoActual = datos; 
 
-    // Título y Carga
+    // Título (Usa .innerText)
     document.getElementById('titulo-contrato').innerText = `Contrato #${id}`;
-    document.getElementById('carga-value').innerText = datos.carga;
+    
+    // Carga (Usa .value y el ID correcto)
+    document.getElementById('carga-value').value = datos.carga; 
 
-    // Datos del Vehículo
-    document.getElementById('v-codigo').innerText = datos.vehiculo.codigo;
-    document.getElementById('v-tipo').innerText = datos.vehiculo.tipo;
-    document.getElementById('v-placa').innerText = datos.vehiculo.placa;
-    document.getElementById('v-carroceria').innerText = datos.vehiculo.carroceria;
-    document.getElementById('v-color').innerText = datos.vehiculo.color;
-    document.getElementById('v-ejes').innerText = datos.vehiculo.ejes;
+    // Datos del Vehículo (Usa .VALUE para todos los INPUTS)
+    document.getElementById('v-codigo').value = datos.vehiculo.codigo;
+    document.getElementById('v-tipo').value = datos.vehiculo.tipo;
+    document.getElementById('v-placa').value = datos.vehiculo.placa;
+    document.getElementById('v-carroceria').value = datos.vehiculo.carroceria;
+    document.getElementById('v-color').value = datos.vehiculo.color;
+    document.getElementById('v-ejes').value = datos.vehiculo.ejes;
 
-    // Datos del Carnet
-    document.getElementById('c-placa').innerText = datos.carnet.placa;
-    document.getElementById('c-marca').innerText = datos.carnet.marca;
-    document.getElementById('c-modelo').innerText = datos.carnet.modelo;
-    document.getElementById('c-anio').innerText = datos.carnet.anio;
+    // Datos del Carnet (Usa .VALUE para todos los INPUTS)
+    document.getElementById('c-placa').value = datos.carnet.placa;
+    document.getElementById('c-marca').value = datos.carnet.marca;
+    document.getElementById('c-modelo').value = datos.carnet.modelo;
+    document.getElementById('c-anio').value = datos.carnet.anio;
 
     // Mostrar el contenedor de la información y ocultar el error
     document.getElementById('info-container').style.display = 'block';
     document.getElementById('error-message').style.display = 'none';
-}
-
+    }
 
 // ------------------------------------------------------------------
 // 3. FUNCIÓN PARA MANEJAR CONTRATO NO ENCONTRADO O ERROR
@@ -115,8 +116,6 @@ function init() {
         contratoNoEncontrado(); 
     }
 }
-
-
 // ------------------------------------------------------------------
 // PUNTO DE ENTRADA: Ejecutar la función de inicio cuando la página cargue
 // ------------------------------------------------------------------
