@@ -14,78 +14,54 @@
     </nav>
 
     <div class="container">
-       ¡Excelente! Ya has identificado y verificado la coincidencia. No tienes ningún error de ID en ese campo.
 
-La línea en tu script.js:
-
-JavaScript
-
-document.getElementById('v-codigo').value = datos.vehiculo.codigo;
-Y la línea en tu index.html:
-
-HTML
-
-<input type="text" class="custom-input" id="v-codigo" readonly>
-son perfectamente correctas y están sincronizadas.
-
-El ID (v-codigo) es idéntico en ambos archivos. Si tu página sigue en blanco, el problema no está en este campo, sino en un punto de fallo anterior o posterior en tu index.html.
-
-🚨 El Punto de Fallo Final
-Dado que la sincronización de IDs parece correcta en el campo de código, el problema de que los datos estén en blanco se debe a que la sección principal de visualización de datos no se está activando o los scripts no se están cargando.
-
-Por favor, revisa tu index.html una última vez, centrándote en estos dos puntos cruciales:
-
-1. 🔗 Carga Correcta de los Scripts
-Asegúrate de que estas dos líneas estén presentes y correctas al final de tu index.html (justo antes de la etiqueta </body>). Si una letra o un punto está mal, el script.js no se ejecuta.
-
-HTML
-
-<script src="./datos.js"></script>
-<script src="./script.js"></script>
-
-<div id="info-container" style="display: none;">
-    
-    </div>
         <h1 class="main-title" id="titulo-contrato">Cargando...</h1>
-
-        <div class="input-wrapper select-wrapper">
-            <i class="fa-solid fa-file-invoice icon-left"></i>
-            <select class="custom-input select-input" id="tipo-carga" disabled>
-                <option value="mas_5">Carga mas de 5 tm</option>
-                <option value="liviana">Carga liviana</option>
-            </select>
-            <i class="fa-solid fa-chevron-down icon-arrow"></i>
+        
+        <div id="error-message" style="display: none; color: red; text-align: center; margin: 20px; font-weight: bold;">
+            El código de contrato proporcionado no existe o no se pudo cargar.
         </div>
 
-        <div class="section-label">DATOS DEL VEHÍCULO</div>
-        <form id="form-vehiculo">
-            <input type="text" class="custom-input" id="v-codigo" readonly>
-            <input type="text" class="custom-input" id="v-tipo" readonly>
-            <input type="text" class="custom-input" id="v-placa" readonly>
-            <input type="text" class="custom-input" id="v-carroceria" readonly>
-            <input type="text" class="custom-input" id="v-color" readonly>
-            <input type="text" class="custom-input" id="v-ejes" readonly>
-        </form>
+        <div id="info-container" style="display: none;">
+            
+            <div class="input-wrapper select-wrapper">
+                <i class="fa-solid fa-file-invoice icon-left"></i>
+                <select class="custom-input select-input" id="carga-value" disabled>
+                    <option value="mas_5">Carga mas de 5 tm</option>
+                    <option value="liviana">Carga liviana</option>
+                </select>
+                <i class="fa-solid fa-chevron-down icon-arrow"></i>
+            </div>
 
-        <div class="section-label mt-medium">DATOS DEL CARNET DE CIRCULACIÓN</div>
-        <form id="form-carnet">
-            <input type="text" class="custom-input" id="c-placa" readonly>
-            <input type="text" class="custom-input" id="c-marca" readonly>
-            <input type="text" class="custom-input" id="c-modelo" readonly>
-            <input type="text" class="custom-input" id="c-anio" readonly>
-        </form>
+            <div class="section-label">DATOS DEL VEHÍCULO</div>
+            <form id="form-vehiculo">
+                <input type="text" class="custom-input" id="v-codigo" readonly>
+                <input type="text" class="custom-input" id="v-tipo" readonly>
+                <input type="text" class="custom-input" id="v-placa" readonly>
+                <input type="text" class="custom-input" id="v-carroceria" readonly>
+                <input type="text" class="custom-input" id="v-color" readonly>
+                <input type="text" class="custom-input" id="v-ejes" readonly>
+            </form>
 
-        <div class="action-buttons">
-            <button onclick="descargarPDF('contrato')" class="TU_CLASE_DE_BOTON">DESCARGAR CONTRATO</button>
-            <button onclick="descargarPDF('carnet')" class="TU_CLASE_DE_BOTON">DESCARGAR CARNET</button>
-            <button class="btn btn-dark" onclick="volver()">VOLVER</button>
-        </div>
+            <div class="section-label mt-medium">DATOS DEL CARNET DE CIRCULACIÓN</div>
+            <form id="form-carnet">
+                <input type="text" class="custom-input" id="c-placa" readonly>
+                <input type="text" class="custom-input" id="c-marca" readonly>
+                <input type="text" class="custom-input" id="c-modelo" readonly>
+                <input type="text" class="custom-input" id="c-anio" readonly>
+            </form>
 
-        <footer class="footer">
-            <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
-            <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
-        </footer>
-    </div>
+            <div class="action-buttons">
+                <button onclick="descargarPDF('contrato')" class="TU_CLASE_DE_BOTON">DESCARGAR CONTRATO</button>
+                <button onclick="descargarPDF('carnet')" class="TU_CLASE_DE_BOTON">DESCARGAR CARNET</button>
+                <button class="btn btn-dark" onclick="volver()">VOLVER</button>
+            </div>
+
+            <footer class="footer">
+                <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
+                <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
+            </footer>
+        </div> 
+        </div> 
 
     <script src="./datos.js"></script>
     <script src="./script.js"></script>
