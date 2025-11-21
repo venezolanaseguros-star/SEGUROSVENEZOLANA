@@ -1,100 +1,123 @@
-/* ARCHIVO: script.js
-   DESCRIPCIÓN: Maneja la lógica de la página y lee la información
-   que viene del archivo externo 'datos.js' (generado por Excel).
-*/
+/**
+ * ======================================================
+ * SCRIPT.JS FINAL - LÓGICA DE CONSULTA Y DESCARGA DE PDFS
+ * ======================================================
+ */
 
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. VALIDACIÓN DE SEGURIDAD
-    // Verificamos si el archivo de datos se cargó correctamente
-    if (typeof baseDeDatos === 'undefined') {
-        alert("Error: No se encontraron datos. Asegúrate de haber generado el archivo datos.js desde Excel.");
-        document.getElementById('titulo-contrato').innerText = "Error de Datos";
-        return;
-    }
+// Variable global para almacenar los datos del contrato que se muestra actualmente.
+// Esto es necesario para que la función de descarga pueda acceder a las URLs de los PDFs.
+let datosContratoActual = null;
 
-    // 2. OBTENER EL ID DEL CONTRATO DESDE LA URL
-    // Ejemplo: si la url es index.html?contrato=70126, esto obtiene "70126"
-    const parametros = new URLSearchParams(window.location.search);
-    const idContrato = parametros.get('contrato');
 
-    // 3. BUSCAR Y MOSTRAR DATOS
-    if (idContrato && baseDeDatos[idContrato]) {
-        // ¡El contrato existe! Cargamos la info
-        cargarDatos(idContrato, baseDeDatos[idContrato]);
-    } else {
-        // El contrato no existe o no se puso en el link
-        manejarError(idContrato);
-    }
-});
+// ------------------------------------------------------------------
+// 1. OBTENER ID DEL CONTRATO DESDE LA URL (URL Parameter)
+// ------------------------------------------------------------------
+function obtenerIdContrato() {
+    // Busca el signo '?' en la URL
+    const params = new URLSearchParams(window.location.search);
+    // Devuelve el valor asociado a la clave 'contrato'
+    return params.get('contrato');
+}
 
-// --- FUNCIÓN PARA LLENAR LOS CAMPOS ---
+
+// ------------------------------------------------------------------
+// 2. FUNCIÓN PARA CARGAR Y MOSTRAR LOS DATOS
+// ------------------------------------------------------------------
 function cargarDatos(id, datos) {
-    // Título
+    // Guarda los datos del contrato cargado en la variable global
+    datosContratoActual = datos; 
+
+    // Título y Carga
     document.getElementById('titulo-contrato').innerText = `Contrato #${id}`;
-    
-    // Selector de carga
-    // Aseguramos que el valor de Excel coincida con las opciones del HTML
-    const selectCarga = document.getElementById('tipo-carga');
-    selectCarga.value = datos.carga; 
+    document.getElementById('carga-value').innerText = datos.carga;
 
     // Datos del Vehículo
-    document.getElementById('v-codigo').value = datos.vehiculo.codigo;
-    document.getElementById('v-tipo').value = datos.vehiculo.tipo;
-    document.getElementById('v-placa').value = datos.vehiculo.placa;
-    document.getElementById('v-carroceria').value = datos.vehiculo.carroceria;
-    document.getElementById('v-color').value = datos.vehiculo.color;
-    document.getElementById('v-ejes').value = datos.vehiculo.ejes;
+    document.getElementById('v-codigo').innerText = datos.vehiculo.codigo;
+    document.getElementById('v-tipo').innerText = datos.vehiculo.tipo;
+    document.getElementById('v-placa').innerText = datos.vehiculo.placa;
+    document.getElementById('v-carroceria').innerText = datos.vehiculo.carroceria;
+    document.getElementById('v-color').innerText = datos.vehiculo.color;
+    document.getElementById('v-ejes').innerText = datos.vehiculo.ejes;
 
     // Datos del Carnet
-    document.getElementById('c-placa').value = datos.carnet.placa;
-    document.getElementById('c-marca').value = datos.carnet.marca;
-    document.getElementById('c-modelo').value = datos.carnet.modelo;
-    document.getElementById('c-anio').value = datos.carnet.anio;
-    
-    console.log(`Datos cargados exitosamente para el contrato #${id}`);
+    document.getElementById('c-placa').innerText = datos.carnet.placa;
+    document.getElementById('c-marca').innerText = datos.carnet.marca;
+    document.getElementById('c-modelo').innerText = datos.carnet.modelo;
+    document.getElementById('c-anio').innerText = datos.carnet.anio;
+
+    // Mostrar el contenedor de la información y ocultar el error
+    document.getElementById('info-container').style.display = 'block';
+    document.getElementById('error-message').style.display = 'none';
 }
 
-// --- FUNCIÓN DE ERROR ---
-function manejarError(id) {
-    const titulo = document.getElementById('titulo-contrato');
-    
-    if (!id) {
-        titulo.innerText = "Esperando Contrato...";
-        console.log("No se especificó ningún contrato en la URL.");
-    } else {
-        titulo.innerText = "Contrato No Encontrado";
-        alert(`El contrato número "${id}" no está en la base de datos de Excel.`);
-    }
-    
-    // Opcional: Limpiar los campos por si acaso
-    const inputs = document.querySelectorAll('.custom-input');
-    inputs.forEach(input => input.value = "");
+
+// ------------------------------------------------------------------
+// 3. FUNCIÓN PARA MANEJAR CONTRATO NO ENCONTRADO O ERROR
+// ------------------------------------------------------------------
+function contratoNoEncontrado() {
+    datosContratoActual = null; // Limpia la variable global
+    document.getElementById('titulo-contrato').innerText = `Error: Contrato No Encontrado`;
+    document.getElementById('info-container').style.display = 'none';
+    document.getElementById('error-message').innerText = 'El código de contrato proporcionado no existe en nuestra base de datos.';
+    document.getElementById('error-message').style.display = 'block';
 }
 
-// --- FUNCIONES DE LOS BOTONES ---
 
+// ------------------------------------------------------------------
+// 4. FUNCIÓN PARA DESCARGAR PDF (Activada por los botones)
+// ------------------------------------------------------------------
+// Esta función debe estar asignada en el HTML a los botones:
+// <button onclick="descargarPDF('contrato')">Descargar Contrato</button>
+// <button onclick="descargarPDF('carnet')">Descargar Carnet</button>
 function descargarPDF(tipo) {
-    // Obtenemos el número actual del título
-    const tituloActual = document.getElementById('titulo-contrato').innerText;
-    
-    if (tituloActual.includes("No Encontrado") || tituloActual.includes("Error")) {
-        alert("No hay datos válidos para descargar.");
+    if (!datosContratoActual) {
+        alert("No hay un contrato cargado. Primero escanee o ingrese un código.");
         return;
     }
 
+    let urlArchivo = "";
+
     if (tipo === 'contrato') {
-        alert(`📄 Generando PDF del ${tituloActual}...`);
-        // Aquí iría tu código real de descarga
+        // Usa el campo 'pdfContrato' generado por Excel (Columna O)
+        urlArchivo = datosContratoActual.pdfContrato; 
     } else if (tipo === 'carnet') {
-        alert(`🪪 Generando Carnet de Circulación asociado al ${tituloActual}...`);
+        // Usa el campo 'pdfCarnet' generado por Excel (Columna P)
+        urlArchivo = datosContratoActual.pdfCarnet;
+    }
+
+    if (urlArchivo) {
+        // Abre el archivo en una nueva pestaña (la descarga o visualización la maneja el navegador)
+        window.open(urlArchivo, '_blank');
+    } else {
+        alert(`Error: No se encontró la ruta para el archivo de ${tipo}. Verifique que el enlace esté en su hoja de Excel.`);
     }
 }
 
-function volver() {
-    // Intenta volver atrás en el historial del navegador
-    if (window.history.length > 1) {
-        window.history.back();
+
+// ------------------------------------------------------------------
+// 5. FUNCIÓN DE INICIO PRINCIPAL
+// ------------------------------------------------------------------
+function init() {
+    const idContrato = obtenerIdContrato();
+
+    // La baseDeDatos se carga desde el archivo datos.js que se enlaza en el HTML.
+    // Asume que la variable global 'baseDeDatos' está disponible.
+    if (idContrato && typeof baseDeDatos !== 'undefined') {
+        const datos = baseDeDatos[idContrato];
+        
+        if (datos) {
+            cargarDatos(idContrato, datos);
+        } else {
+            contratoNoEncontrado();
+        }
     } else {
-        alert("No hay página anterior a la cual volver.");
+        // Muestra el mensaje de "No Encontrado" si no hay parámetro en la URL
+        contratoNoEncontrado(); 
     }
 }
+
+
+// ------------------------------------------------------------------
+// PUNTO DE ENTRADA: Ejecutar la función de inicio cuando la página cargue
+// ------------------------------------------------------------------
+window.onload = init;
