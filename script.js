@@ -5,23 +5,18 @@
  */
 
 // Variable global para almacenar los datos del contrato que se muestra actualmente.
-// Esto es necesario para que la función de descarga pueda acceder a las URLs de los PDFs.
-let datosContratoActual = null;
-
+let datosContratoActual = null; 
 
 // ------------------------------------------------------------------
 // 1. OBTENER ID DEL CONTRATO DESDE LA URL (URL Parameter)
 // ------------------------------------------------------------------
 function obtenerIdContrato() {
-    // Busca el signo '?' en la URL
     const params = new URLSearchParams(window.location.search);
-    // Devuelve el valor asociado a la clave 'contrato'
     return params.get('contrato');
 }
 
-
 // ------------------------------------------------------------------
-// 2. FUNCIÓN PARA CARGAR Y MOSTRAR LOS DATOS (VERSIÓN FINAL)
+// 2. FUNCIÓN PARA CARGAR Y MOSTRAR LOS DATOS (VERSIÓN FINAL CORREGIDA)
 // ------------------------------------------------------------------
 function cargarDatos(id, datos) {
     // Guarda los datos del contrato cargado en la variable global
@@ -30,7 +25,7 @@ function cargarDatos(id, datos) {
     // Título (Usa .innerText)
     document.getElementById('titulo-contrato').innerText = `Contrato #${id}`;
     
-    // Carga (Usa .value y el ID correcto)
+    // Carga (Usa .value y el ID 'carga-value')
     document.getElementById('carga-value').value = datos.carga; 
 
     // Datos del Vehículo (Usa .VALUE para todos los INPUTS)
@@ -50,7 +45,7 @@ function cargarDatos(id, datos) {
     // Mostrar el contenedor de la información y ocultar el error
     document.getElementById('info-container').style.display = 'block';
     document.getElementById('error-message').style.display = 'none';
-    }
+}
 
 // ------------------------------------------------------------------
 // 3. FUNCIÓN PARA MANEJAR CONTRATO NO ENCONTRADO O ERROR
@@ -63,13 +58,9 @@ function contratoNoEncontrado() {
     document.getElementById('error-message').style.display = 'block';
 }
 
-
 // ------------------------------------------------------------------
 // 4. FUNCIÓN PARA DESCARGAR PDF (Activada por los botones)
 // ------------------------------------------------------------------
-// Esta función debe estar asignada en el HTML a los botones:
-// <button onclick="descargarPDF('contrato')">Descargar Contrato</button>
-// <button onclick="descargarPDF('carnet')">Descargar Carnet</button>
 function descargarPDF(tipo) {
     if (!datosContratoActual) {
         alert("No hay un contrato cargado. Primero escanee o ingrese un código.");
@@ -87,22 +78,20 @@ function descargarPDF(tipo) {
     }
 
     if (urlArchivo) {
-        // Abre el archivo en una nueva pestaña (la descarga o visualización la maneja el navegador)
+        // Abre el archivo en una nueva pestaña
         window.open(urlArchivo, '_blank');
+        console.log(`Descargando: ${urlArchivo}`);
     } else {
-        alert(`Error: No se encontró la ruta para el archivo de ${tipo}. Verifique que el enlace esté en su hoja de Excel.`);
+        alert(`Error: No se encontró la ruta para el archivo de ${tipo}.`);
     }
 }
 
-
 // ------------------------------------------------------------------
-// 5. FUNCIÓN DE INICIO PRINCIPAL
+// 5. FUNCIÓN DE INICIO PRINCIPAL Y PUNTO DE ENTRADA
 // ------------------------------------------------------------------
 function init() {
     const idContrato = obtenerIdContrato();
 
-    // La baseDeDatos se carga desde el archivo datos.js que se enlaza en el HTML.
-    // Asume que la variable global 'baseDeDatos' está disponible.
     if (idContrato && typeof baseDeDatos !== 'undefined') {
         const datos = baseDeDatos[idContrato];
         
@@ -112,11 +101,8 @@ function init() {
             contratoNoEncontrado();
         }
     } else {
-        // Muestra el mensaje de "No Encontrado" si no hay parámetro en la URL
         contratoNoEncontrado(); 
     }
 }
-// ------------------------------------------------------------------
-// PUNTO DE ENTRADA: Ejecutar la función de inicio cuando la página cargue
-// ------------------------------------------------------------------
+
 window.onload = init;
