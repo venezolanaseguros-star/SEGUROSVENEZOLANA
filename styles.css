@@ -1,0 +1,167 @@
+/* --- CONFIGURACIÓN BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #122023; /* Fondo general verde/azul muy oscuro */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- BARRA SUPERIOR (Menu) --- */
+.navbar {
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    color: #a0a0a0;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* --- CONTENEDOR TIPO MÓVIL --- */
+.container {
+    width: 100%;
+    max-width: 450px; /* Ancho máximo para parecer app móvil */
+    background-color: #1c2124; /* Fondo de la tarjeta */
+    padding: 20px;
+    padding-bottom: 40px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* --- TÍTULOS --- */
+.main-title {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #dcdcdc; /* Blanco hueso */
+    font-weight: 600;
+}
+
+.section-label {
+    font-size: 12px;
+    color: #7a8288; /* Gris medio para las etiquetas */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    margin-left: 5px;
+}
+
+.mt-medium {
+    margin-top: 30px;
+}
+
+/* --- INPUTS Y CAMPOS --- */
+.custom-input {
+    width: 100%;
+    background-color: #262a2e; /* Gris oscuro fondo input */
+    border: none;
+    border-radius: 5px;
+    padding: 16px;
+    color: #aeb3b7; /* Color del texto dentro del input */
+    font-size: 15px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+/* Estilos para cuando seleccionas un campo */
+.custom-input:focus {
+    background-color: #2f343a;
+    box-shadow: 0 0 0 1px #4a5057;
+}
+
+/* Wrapper especial para el Select con Icono */
+.input-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.select-input {
+    padding-left: 45px; /* Espacio para el icono */
+    background-color: #33383d; /* Un poco más claro para destacar */
+    appearance: none; /* Quita la flecha por defecto del navegador */
+    cursor: pointer;
+}
+
+.icon-left {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aeb3b7;
+    font-size: 14px;
+}
+
+.icon-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+/* --- BOTONES --- */
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.2s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Botón Azul Principal */
+.btn-blue {
+    background-color: #0a2456; /* Azul marino profundo */
+    color: white;
+}
+
+/* Botón Oscuro (Volver) */
+.btn-dark {
+    background-color: #050c1a; /* Casi negro azulado */
+    color: white;
+    border: 1px solid #0a2456;
+}
+
+/* --- FOOTER --- */
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #556066;
+}
+
+.brand-name {
+    color: #5b7aa6; /* Azul grisáceo del logo Artgoritmo */
+    font-weight: 500;
+}

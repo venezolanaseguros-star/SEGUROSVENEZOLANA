@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Contrato</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <i class="fa-solid fa-bars menu-icon"></i>
+    </nav>
+
+    <div class="container">
+        
+        <h1 class="main-title" id="titulo-contrato">Cargando...</h1>
+
+        <div class="input-wrapper select-wrapper">
+            <i class="fa-solid fa-file-invoice icon-left"></i>
+            <select class="custom-input select-input" id="tipo-carga" disabled>
+                <option value="mas_5">Carga mas de 5 tm</option>
+                <option value="liviana">Carga liviana</option>
+            </select>
+            <i class="fa-solid fa-chevron-down icon-arrow"></i>
+        </div>
+
+        <div class="section-label">DATOS DEL VEHÍCULO</div>
+        <form id="form-vehiculo">
+            <input type="text" class="custom-input" id="v-codigo" readonly>
+            <input type="text" class="custom-input" id="v-tipo" readonly>
+            <input type="text" class="custom-input" id="v-placa" readonly>
+            <input type="text" class="custom-input" id="v-carroceria" readonly>
+            <input type="text" class="custom-input" id="v-color" readonly>
+            <input type="text" class="custom-input" id="v-ejes" readonly>
+        </form>
+
+        <div class="section-label mt-medium">DATOS DEL CARNET DE CIRCULACIÓN</div>
+        <form id="form-carnet">
+            <input type="text" class="custom-input" id="c-placa" readonly>
+            <input type="text" class="custom-input" id="c-marca" readonly>
+            <input type="text" class="custom-input" id="c-modelo" readonly>
+            <input type="text" class="custom-input" id="c-anio" readonly>
+        </form>
+
+        <div class="action-buttons">
+            <button class="btn btn-blue" onclick="descargarPDF('contrato')">DESCARGAR CONTRATO</button>
+            <button class="btn btn-blue" onclick="descargarPDF('carnet')">DESCARGAR CARNET</button>
+            <button class="btn btn-dark" onclick="volver()">VOLVER</button>
+        </div>
+
+        <footer class="footer">
+            <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
+            <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
+        </footer>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="./datos.js"></script>
+</body>
+</html>
