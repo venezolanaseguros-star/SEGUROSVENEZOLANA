@@ -19,58 +19,33 @@
         <div id="info-container" style="display: none;">
             
             <section class="data-section">
-                <h2>Detalles de la Carga</h2>
-                <div class="field-group">
-                    <label for="carga-value">Tipo de Carga</label>
-                    <input type="text" id="carga-value" class="custom-input" readonly>
-                </div>
+                <input type="text" id="carga-value" readonly>
             </section>
 
             <section class="data-section">
-                <h2>Datos del Vehículo</h2>
-                <div class="field-group">
-                    <label for="v-codigo">Código</label>
-                    <input type="text" id="v-codigo" class="custom-input" readonly>
-                    <label for="v-tipo">Tipo</label>
-                    <input type="text" id="v-tipo" class="custom-input" readonly>
-                    <label for="v-placa">Placa</label>
-                    <input type="text" id="v-placa" class="custom-input" readonly>
-                    <label for="v-carroceria">Carrocería</label>
-                    <input type="text" id="v-carroceria" class="custom-input" readonly>
-                    <label for="v-color">Color</label>
-                    <input type="text" id="v-color" class="custom-input" readonly>
-                    <label for="v-ejes">Ejes</label>
-                    <input type="text" id="v-ejes" class="custom-input" readonly>
-                </div>
+                <input type="text" id="v-codigo" readonly>
+                <input type="text" id="v-tipo" readonly>
+                <input type="text" id="v-placa" readonly>
+                <input type="text" id="v-carroceria" readonly>
+                <input type="text" id="v-color" readonly>
+                <input type="text" id="v-ejes" readonly>
             </section>
 
             <section class="data-section">
-                <h2>Datos del Carnet</h2>
-                <div class="field-group">
-                    <label for="c-placa">Placa</label>
-                    <input type="text" id="c-placa" class="custom-input" readonly>
-                    <label for="c-marca">Marca</label>
-                    <input type="text" id="c-marca" class="custom-input" readonly>
-                    <label for="c-modelo">Modelo</label>
-                    <input type="text" id="c-modelo" class="custom-input" readonly>
-                    <label for="c-anio">Año</label>
-                    <input type="text" id="c-anio" class="custom-input" readonly>
-                </div>
+                <input type="text" id="c-placa" readonly>
+                <input type="text" id="c-marca" readonly>
+                <input type="text" id="c-modelo" readonly>
+                <input type="text" id="c-anio" readonly>
             </section>
 
             <section class="actions-section">
-                <button onclick="descargarPDF('contrato')" class="btn-download">
-                    Descargar Contrato
-                </button>
-                <button onclick="descargarPDF('carnet')" class="btn-download">
-                    Descargar Carnet
-                </button>
+                <button onclick="descargarPDF('contrato')">Descargar Contrato</button>
+                <button onclick="descargarPDF('carnet')">Descargar Carnet</button>
             </section>
-
         </div> 
-        </div> 
+    </div> 
 
     <script src="./datos.js"></script>
     <script src="./script.js"></script>
 </body>
-</html>git add .
+</html>
