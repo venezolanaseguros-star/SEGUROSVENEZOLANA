@@ -1,7 +1,8 @@
 /* --- 1. DEFINICIÓN DE VARIABLES (Por defecto: MODO CLARO) --- */
 :root {
     /* Colores del modo claro */
-    --color-tarjeta-fondo: #ffffff; 
+    --color-fondo-principal: #305C5E; /* Nuevo color de fondo general (claro) */
+    --color-tarjeta-fondo: #ffffff; /* Blanco de la tarjeta */
     --color-input-fondo: #ebebeb; 
     --color-texto-principal: #333333; 
     --color-texto-secundario: #666666; 
@@ -15,6 +16,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         /* Colores del modo oscuro */
+        --color-fondo-principal: #1D3535; /* Nuevo color de fondo general (oscuro) */
         --color-tarjeta-fondo: #454c52; 
         --color-input-fondo: #5d6d7e; 
         --color-texto-principal: #f5f5f5; 
@@ -24,27 +26,22 @@
         --color-icono-input: #ffffff; 
         --box-shadow-tarjeta: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
-    
-    /* CORRECCIÓN FINAL: El fondo exterior es fijo en verde oscuro en Modo Oscuro */
-    html, body, .navbar { 
-        background-color: #2F4F4F !important;
-    }
 }
 
 
-/* --- 3. APLICACIÓN DE ESTILOS BASE Y FIJACIÓN DEL FONDO EXTERIOR --- */
+/* --- 3. APLICACIÓN DE ESTILOS BASE --- */
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif; 
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s; 
 }
 
-/* Base: El fondo exterior es fijo en el verde oscuro en ambos modos. */
+/* El fondo exterior ahora es variable. */
 html, body { 
-    background-color: #2F4F4F; 
+    background-color: var(--color-fondo-principal); 
 }
 
 body {
@@ -58,8 +55,8 @@ body {
 /* --- BARRA SUPERIOR (Navbar) --- */
 .navbar {
     width: 100%;
-    /* La Navbar usa el fondo fijo verde oscuro */
-    background-color: #2F4F4F; 
+    /* La Navbar usa el mismo color que el fondo principal */
+    background-color: var(--color-fondo-principal); 
     padding: 15px 20px;
     display: flex;
     align-items: center;
