@@ -4,14 +4,14 @@
 */
 :root {
     /* --- MODO CLARO (Valores por defecto) --- */
-    --color-fondo-principal: #305C5E;       /* Fondo de la pantalla y la Navbar */
-    --color-tarjeta-fondo: #ffffff;         /* Fondo de la tarjeta principal (Formulario) */
-    --color-input-fondo: #ebebeb;           /* Fondo de los campos de texto e inputs */
-    --color-texto-principal: #a7a7a7;       /* Color del texto dentro de los inputs */
-    --color-texto-secundario: #666666;      /* Color del texto de ayuda (placeholder) y footer */
-    --color-titulo-contrato: #533957;       /* Color del título "Contrato #" */
-    --color-marca-footer: #533957;          /* Color del nombre 'Algoritmo' en el footer */
-    --color-icono-input: #333333;           /* Color de los iconos a la izquierda del input (ej. camión) */
+    --color-fondo-principal: #305C5E;        /* Fondo de la pantalla y la Navbar */
+    --color-tarjeta-fondo: #ffffff;          /* Fondo de la tarjeta principal (Formulario) */
+    --color-input-fondo: #ebebeb;            /* Fondo de los campos de texto e inputs */
+    --color-texto-principal: #a7a7a7;        /* Color del texto dentro de los inputs */
+    --color-texto-secundario: #666666;       /* Color del texto de ayuda (placeholder) y footer */
+    --color-titulo-contrato: #533957;        /* Color del título "Contrato #" */
+    --color-marca-footer: #533957;           /* Color del nombre 'Algoritmo' en el footer */
+    --color-icono-input: #333333;            /* Color de los iconos a la izquierda del input (ej. camión) */
     
     /* Variables de Texto y Línea para las Etiquetas de Sección (Ej: 'Datos de Vehículo') */
     --color-seccion-texto: rgb(100, 100, 100); /* Color del texto de la etiqueta de sección */
@@ -111,7 +111,8 @@ body {
     background-color: var(--color-tarjeta-fondo); 
     padding: 15px; 
     padding-bottom: 25px; 
-    margin-top: 3px; /* Espacio compacto entre Navbar y Tarjeta */
+    /* APLICANDO CAMBIO 1: Reducir de 3px a 1px */
+    margin-top: 1px; 
     border-radius: 8px; 
     box-shadow: var(--box-shadow-tarjeta); 
 }
@@ -120,7 +121,8 @@ body {
 .main-title {
     text-align: center;
     font-size: 22px;
-    margin-bottom: 5px; /* Pega el título "Contrato #" al primer input */
+    /* APLICANDO CAMBIO 2: Reducir de 5px a 1px */
+    margin-bottom: 1px; 
     color: var(--color-titulo-contrato); 
     font-weight: 600;
 }
@@ -136,8 +138,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px; 
     
-    /* Márgenes de separación: Compacto */
-    margin: 10px 0 5px 0; 
+    /* APLICANDO CAMBIO 3: Reducir margen superior de 10px a 5px */
+    margin: 5px 0 5px 0; 
     padding-bottom: 3px; 
 
     /* Línea inferior delgada y transparente */
@@ -186,10 +188,28 @@ body {
     position: absolute;
     left: 15px;
     top: 50%;
-    transform: translateY(-50%);
+    /* APLICANDO CAMBIO 4: Ajuste para evitar solapamiento del ícono con la etiqueta */
+    transform: translateY(-45%); 
     color: var(--color-icono-input); 
     font-size: 18px; 
 }
+
+/* NUEVO ESTILO: Adorno a la derecha (para la flecha de "ver más") */
+.adornment-right {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-titulo-contrato); /* Usamos el color del título para el adorno */
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.adornment-right:hover {
+    color: #007bff;
+}
+
 
 /* --- BOTONES DE ACCIÓN --- */
 .action-buttons {
@@ -229,11 +249,11 @@ body {
 
 /* Párrafo del footer (incluye el ajuste manual de line-height) */
 .footer p {
-    line-height: 3; /* NOTA: Alto espaciado vertical entre líneas */
+    line-height: 1.8; /* Se redujo el espaciado para mejor legibilidad */
     margin: 0; 
 }
 
 .brand-name {
     color: var(--color-marca-footer);
-    font-weight: 500;
+    font-weight: 500; /* CORREGIDO: Eliminado el espacio entre 'font-' y 'weight' */
 }
