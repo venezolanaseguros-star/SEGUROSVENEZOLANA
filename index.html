@@ -14,7 +14,7 @@
         <i class="fa-solid fa-bars menu-icon"></i>
     </nav>
 
-        <div class="container">
+    <div class="container">
 
         <h1 class="main-title" id="titulo-contrato">Cargando...</h1>
        
@@ -24,13 +24,16 @@
 
         <div id="info-container" style="display: none;">
            
-           <div class="input-wrapper select-wrapper">
-    <i class="fa-solid fa-file-invoice icon-left"></i>
-   
-    <input type="text" class="custom-input select-input" id="carga-value" readonly>
-   
-    <i class="fa-solid fa-chevron-down icon-arrow"></i>
-</div>
+            <!-- INICIO DEL CAMPO DE CARGA CON ADORNO (VER MÁS) -->
+            <div class="input-wrapper select-wrapper">
+                <i class="fa-solid fa-file-invoice icon-left"></i>
+                <!-- Aquí va el adorno de "Ver Más" que solicitaste -->
+                <div class="adornment-right">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <input type="text" class="custom-input select-input" id="carga-value" readonly>
+            </div>
+            <!-- FIN DEL CAMPO DE CARGA CON ADORNO -->
 
             <div class="section-label">DATOS DEL VEHÍCULO</div>
             <form id="form-vehiculo">
@@ -50,18 +53,20 @@
                 <input type="text" class="custom-input" id="c-anio" readonly>
             </form>
 
-            <div class="action-buttons">
-                <button onclick="descargarPDF('contrato')" class="btn btn-blue">DESCARGAR CONTRATO</button>
-                <button onclick="descargarPDF('carnet')" class="btn btn-blue">DESCARGAR CARNET</button>
-                <button class="btn btn-blue" onclick="volver()">VOLVER</button>
-            </div>
+            <div class="action-buttons">
+                <button onclick="descargarPDF('contrato')" class="btn btn-blue">DESCARGAR CONTRATO</button>
+                <button onclick="descargarPDF('carnet')" class="btn btn-blue">DESCARGAR CARNET</button>
+                <button class="btn btn-blue" onclick="volver()">VOLVER</button>
+            </div>
 
-        </div>     </div> <footer class="footer">
-        <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
-        <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
-    </footer>
+        </div> 
+    </div> 
+    <footer class="footer">
+        <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
+        <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
+    </footer>
 
     <script src="./datos.js"></script>
     <script src="./script.js"></script>
 </body>
-</html>
+</html>>
