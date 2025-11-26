@@ -1,14 +1,14 @@
-/* --- CONFIGURACIÓN BASE --- */
+/* --- CONFIGURACIÓN BASE (Fiel a tus imágenes) --- */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-/* APLICA EL FONDO DIRECTAMENTE AL HTML Y BODY (Tono #222222 es un gris muy oscuro) */
+/* Color de fondo principal (Verde oscuro/Gris azulado) */
 html, body { 
-    background-color: #222222; 
+    background-color: #2F4F4F; 
 }
 
 body {
@@ -19,10 +19,11 @@ body {
     min-height: 100vh;
 }
 
-/* --- BARRA SUPERIOR (Menu) --- */
+/* --- BARRA SUPERIOR (Navbar) --- */
 .navbar {
     width: 100%;
-    background-color: #101010; /* Fondo más oscuro que el cuerpo */
+    /* Mismo color del contenedor para que la barra no destaque */
+    background-color: #36454F; 
     padding: 15px 20px;
     display: flex;
     align-items: center;
@@ -34,70 +35,70 @@ body {
     cursor: pointer;
 }
 
-/* --- CONTENEDOR TIPO MÓVIL --- */
+/* --- CONTENEDOR TIPO MÓVIL (La "tarjeta" principal) --- */
 .container {
     width: 100%;
     max-width: 450px; 
-    background-color: transparent; 
+    /* Fondo del contenedor (Gris azulado) */
+    background-color: #36454F; 
     padding: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 40px; 
     margin-top: 10px;
-    border-radius: 0;
-    box-shadow: none;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 /* --- TÍTULOS Y ETIQUETAS --- */
 .main-title {
     text-align: center;
     font-size: 22px;
-    margin-bottom: 20px; /* Reducción de 30px a 20px */
+    margin-bottom: 25px; 
     color: #ffffff; 
     font-weight: 600;
 }
 
 .section-label {
-    color: #ffffff; 
-    font-size: 15px;
+    color: #e0e0e0; 
+    font-size: 14px; 
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0;
-    margin-bottom: 8px; /* Reducción de 12px a 8px */
+    letter-spacing: 0.5px; 
+    margin-bottom: 12px;
     margin-left: 0;
-    padding-top: 15px; /* Reducción de 20px a 15px para menos separación vertical */
+    padding-top: 20px;
 }
 
 .mt-medium {
-    margin-top: 15px; /* Ajuste menor */
+    margin-top: 20px;
 }
 
 /* --- INPUTS Y CAMPOS --- */
 .custom-input {
     width: 100%;
-    background-color: #262626; /* Fondo de input gris oscuro */
+    /* Fondo de input más claro que el contenedor */
+    background-color: #4D6474; 
     border: none;
-    border-radius: 4px;
-    padding: 18px; 
+    border-radius: 5px; 
+    padding: 15px; 
     color: #ffffff;
     font-size: 15px;
-    margin-bottom: 8px; /* Reducción de 12px a 8px para pegar los campos */
+    margin-bottom: 10px; 
     outline: none;
 }
 
-/* Estilos para cuando seleccionas un campo */
 .custom-input:focus {
-    background-color: #262626; 
-    box-shadow: 0 0 0 2px #0d1e39; /* Resaltado azul al hacer foco */
+    background-color: #4D6474; 
+    box-shadow: 0 0 0 2px #007bff; 
 }
 
-/* Wrapper especial para el Select con Icono */
 .input-wrapper {
     position: relative;
-    margin-bottom: 15px; 
+    margin-bottom: 20px;
 }
 
 .select-input {
     padding-left: 45px; 
-    background-color: #262626; 
+    background-color: #4D6474; 
     appearance: none; 
     cursor: pointer;
 }
@@ -108,7 +109,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     color: #ffffff;
-    font-size: 16px;
+    font-size: 18px; 
 }
 
 .icon-arrow {
@@ -121,61 +122,44 @@ body {
     pointer-events: none;
 }
 
-/* --- BOTONES --- */
+/* --- BOTONES (UNIFICADOS) --- */
 .action-buttons {
-    margin-top: 20px; /* Reducción de 40px a 30px */
+    margin-top: 35px; 
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Reducción de 15px a 10px para juntar los botones */
+    gap: 12px; 
 }
 
 .btn {
     width: 100%;
     padding: 16px;
     border: none;
-    border-radius: 0; /* Bordes cuadrados */
-    font-size: 14px;
+    border-radius: 5px; 
+    font-size: 15px; 
     font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     transition: background-color 0.2s;
-}
-
-/* Botón Azul Marino Principal (DESCARGAR CONTRATO) */
-.btn-blue {
-    background-color: #0d1e39;
+    
+    /* ESTILOS AZULES UNIFICADOS PARA TODOS LOS BOTONES */
+    background-color: #007bff; /* Color azul estándar de las imágenes */
     color: white;
 }
-.btn-blue:hover {
-    background-color: #1a3356;
+
+.btn:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
 }
 
-/* Botón Oscuro Secundario (DESCARGAR CARNET) */
-.btn-dark {
-    background-color: #383838;
-    color: white;
-    border: none;
-}
-.btn-dark:hover {
-    background-color: #505050;
-}
+/* Las clases .btn-blue, .btn-dark, .btn-volver NO son necesarias ya que .btn lo maneja todo. */
 
-/* Botón Volver */
-.btn-volver {
-    background-color: #0b0c0f;
-    color: white;
-}
-.btn-volver:hover {
-    background-color: #1a1b1d;
-}
 
 /* --- FOOTER --- */
 .footer {
-    margin-top: 30px; /* Reducción de 40px a 30px */
+    margin-top: 30px;
     text-align: center;
-    font-size: 10px;
-    color: #999999; 
+    font-size: 14px;
+    color: #bbbbbb; 
 }
 
 .brand-name {
