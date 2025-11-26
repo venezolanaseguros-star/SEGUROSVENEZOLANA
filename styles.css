@@ -1,11 +1,11 @@
 /* --- 1. DEFINICIÓN DE VARIABLES (Por defecto: MODO CLARO) --- */
 :root {
     /* Colores del modo claro */
-    --color-fondo-principal: #305C5E; /* Nuevo color de fondo general (claro) */
+    --color-fondo-principal: #305C5E; /* Fondo general (claro) */
     --color-tarjeta-fondo: #ffffff; /* Blanco de la tarjeta */
     --color-input-fondo: #ebebeb; 
-    --color-texto-principal: #333333; 
-    --color-texto-secundario: #666666; 
+    --color-texto-principal: #333333; /* Texto principal: Negro */
+    --color-texto-secundario: #666666; /* Texto de etiquetas: Gris */
     --color-titulo-contrato: #333333; 
     --color-marca-footer: #333333; 
     --color-icono-input: #333333; 
@@ -16,7 +16,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         /* Colores del modo oscuro */
-        --color-fondo-principal: #1D3535; /* Nuevo color de fondo general (oscuro) */
+        --color-fondo-principal: #1D3535; /* Fondo general (oscuro) */
         --color-tarjeta-fondo: #454c52; 
         --color-input-fondo: #5d6d7e; 
         --color-texto-principal: #f5f5f5; 
@@ -45,7 +45,7 @@ html, body {
 }
 
 body {
-    color: var(--color-texto-principal);
+    color: var(--color-texto-principal); /* APLICADO: Texto base del body */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,15 +55,14 @@ body {
 /* --- BARRA SUPERIOR (Navbar) --- */
 .navbar {
     width: 100%;
-    /* La Navbar usa el mismo color que el fondo principal */
     background-color: var(--color-fondo-principal); 
-    padding: 15px 20px;
+    padding: 10px 20px; /* Reducción de padding superior/inferior */
     display: flex;
     align-items: center;
 }
 
 .menu-icon {
-    color: var(--color-texto-principal);
+    color: var(--color-texto-principal); /* APLICADO: Color del ícono */
     font-size: 20px; 
     cursor: pointer;
 }
@@ -74,8 +73,8 @@ body {
     max-width: 450px; 
     background-color: var(--color-tarjeta-fondo); 
     padding: 15px; 
-    padding-bottom: 35px; 
-    margin-top: 10px; 
+    padding-bottom: 25px; /* AJUSTE DE MARGEN: Reducción del padding inferior */
+    margin-top: 5px; /* AJUSTE DE MARGEN: Reducción del margen superior */
     border-radius: 8px; 
     box-shadow: var(--box-shadow-tarjeta); 
 }
@@ -84,24 +83,24 @@ body {
 .main-title {
     text-align: center;
     font-size: 22px;
-    margin-bottom: 20px; 
+    margin-bottom: 15px; /* AJUSTE DE MARGEN: Reducción del margen inferior */
     color: var(--color-titulo-contrato); 
     font-weight: 600;
 }
 
 .section-label {
-    color: var(--color-texto-secundario); 
+    color: var(--color-texto-secundario); /* APLICADO: Color de etiquetas */
     font-size: 14px; 
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px; 
-    margin-bottom: 10px; 
+    margin-bottom: 5px; /* AJUSTE DE MARGEN: Reducción del margen inferior */
     margin-left: 0;
-    padding-top: 15px; 
+    padding-top: 10px; /* AJUSTE DE MARGEN: Reducción del padding superior */
 }
 
 .mt-medium {
-    margin-top: 15px; 
+    margin-top: 10px; /* AJUSTE DE MARGEN: Reducción */
 }
 
 /* --- INPUTS Y CAMPOS --- */
@@ -110,11 +109,17 @@ body {
     background-color: var(--color-input-fondo); 
     border: none;
     border-radius: 5px; 
-    padding: 15px; 
-    color: var(--color-texto-principal); 
+    padding: 12px; /* Reducción ligera del padding interno */
+    color: var(--color-texto-principal); /* APLICADO: Color del texto dentro del input */
     font-size: 15px;
-    margin-bottom: 8px; 
+    margin-bottom: 5px; /* AJUSTE DE MARGEN: Reducción del margen inferior */
     outline: none;
+}
+
+/* Placeholder color (opcional, pero buena práctica) */
+.custom-input::placeholder {
+    color: var(--color-texto-secundario); 
+    opacity: 0.7; 
 }
 
 .custom-input:focus {
@@ -124,7 +129,7 @@ body {
 
 .input-wrapper {
     position: relative;
-    margin-bottom: 15px; 
+    margin-bottom: 10px; /* AJUSTE DE MARGEN: Reducción del margen inferior */
 }
 
 .select-input {
@@ -132,6 +137,7 @@ body {
     background-color: var(--color-input-fondo); 
     appearance: none; 
     cursor: pointer;
+    color: var(--color-texto-principal); /* APLICADO: Color del texto dentro del select */
 }
 
 .icon-left {
@@ -148,22 +154,22 @@ body {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--color-texto-principal);
+    color: var(--color-texto-principal); /* APLICADO: Color de la flecha del select */
     font-size: 12px;
     pointer-events: none;
 }
 
 /* --- BOTONES (UNIFICADOS - Todos Azules) --- */
 .action-buttons {
-    margin-top: 25px; 
+    margin-top: 15px; /* AJUSTE DE MARGEN: Reducción drástica */
     display: flex;
     flex-direction: column;
-    gap: 10px; 
+    gap: 8px; /* AJUSTE DE MARGEN: Reducción */
 }
 
 .btn {
     width: 100%;
-    padding: 16px;
+    padding: 14px; /* Reducción del padding del botón */
     border: none;
     border-radius: 5px; 
     font-size: 15px; 
@@ -183,14 +189,14 @@ body {
 
 /* --- FOOTER (Sobre el fondo exterior) --- */
 .footer {
-    margin-top: 25px; 
+    margin-top: 15px; /* AJUSTE DE MARGEN: Reducción */
     text-align: center;
     font-size: 14px;
-    color: var(--color-texto-secundario); 
+    color: var(--color-texto-secundario); /* APLICADO: Color del texto de copyright */
 }
 
 .footer p {
-    line-height: 1.4; 
+    line-height: 2; /* Reducción ligera del interlineado */
     margin: 0; 
 }
 
