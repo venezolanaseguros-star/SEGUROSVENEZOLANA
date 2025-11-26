@@ -1,18 +1,16 @@
 /*
 |=================================================================================================|
 | --- 1. DEFINICIÓN DE VARIABLES ---
-|   Propósito: Centralizar todos los colores para facilitar los cambios de tema (Claro/Oscuro).
-|=================================================================================================|
 */
 :root {
     /* --- MODO CLARO (Valores por defecto) --- */
     --color-fondo-principal: #305C5E;       /* Fondo de la pantalla y la Navbar */
     --color-tarjeta-fondo: #ffffff;         /* Fondo de la tarjeta principal (Formulario) */
     --color-input-fondo: #ebebeb;           /* Fondo de los campos de texto e inputs */
-    --color-texto-principal: #333333;       /* Color del texto dentro de los inputs */
+    --color-texto-principal: #ebebeb;       /* Color del texto dentro de los inputs */
     --color-texto-secundario: #666666;      /* Color del texto de ayuda (placeholder) y footer */
-    --color-titulo-contrato: #333333;       /* Color del título "Contrato #" */
-    --color-marca-footer: #333333;          /* Color del nombre 'Algoritmo' en el footer */
+    --color-titulo-contrato: #bb07d3d0;       /* Color del título "Contrato #" */
+    --color-marca-footer: #ad02d8e3;          /* Color del nombre 'Algoritmo' en el footer */
     --color-icono-input: #333333;           /* Color de los iconos a la izquierda del input (ej. camión) */
     
     /* Variables de Texto y Línea para las Etiquetas de Sección (Ej: 'Datos de Vehículo') */
