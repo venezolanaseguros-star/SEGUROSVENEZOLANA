@@ -1,36 +1,44 @@
-/* --- 1. DEFINICIÓN DE VARIABLES (Por defecto: MODO CLARO) --- */
+/*
+|=================================================================================================|
+| --- 1. DEFINICIÓN DE VARIABLES ---
+|   Propósito: Centralizar todos los colores para facilitar los cambios de tema (Claro/Oscuro).
+|=================================================================================================|
+*/
 :root {
-    /* Colores del modo claro */
-    --color-fondo-principal: #305C5E; 
-    --color-tarjeta-fondo: #ffffff; 
-    --color-input-fondo: #ebebeb; 
-    --color-texto-principal: #333333; 
-    --color-texto-secundario: #666666; 
-    --color-titulo-contrato: #333333; 
-    --color-marca-footer: #333333; 
-    --color-icono-input: #333333; 
+    /* --- MODO CLARO (Valores por defecto) --- */
+    --color-fondo-principal: #305C5E;       /* Fondo de la pantalla y la Navbar */
+    --color-tarjeta-fondo: #ffffff;         /* Fondo de la tarjeta principal (Formulario) */
+    --color-input-fondo: #ebebeb;           /* Fondo de los campos de texto e inputs */
+    --color-texto-principal: #333333;       /* Color del texto dentro de los inputs */
+    --color-texto-secundario: #666666;      /* Color del texto de ayuda (placeholder) y footer */
+    --color-titulo-contrato: #333333;       /* Color del título "Contrato #" */
+    --color-marca-footer: #333333;          /* Color del nombre 'Algoritmo' en el footer */
+    --color-icono-input: #333333;           /* Color de los iconos a la izquierda del input (ej. camión) */
     
-    /* Variables de Texto y Línea para las Secciones */
-    --color-seccion-texto: rgb(100, 100, 100); 
-    --color-seccion-linea: rgba(190, 190, 190, 0.4); 
+    /* Variables de Texto y Línea para las Etiquetas de Sección (Ej: 'Datos de Vehículo') */
+    --color-seccion-texto: rgb(100, 100, 100); /* Color del texto de la etiqueta de sección */
+    --color-seccion-linea: rgba(190, 190, 190, 0.4); /* Color de la línea inferior (transparente) */
     
-    --box-shadow-tarjeta: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --box-shadow-tarjeta: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta principal */
 }
 
-/* --- 2. BLOQUE DE MODO OSCURO (Activado por el Sistema) --- */
+/*
+|=================================================================================================|
+| --- 2. BLOQUE DE MODO OSCURO ---
+|   Propósito: Sobrescribir los colores de las variables cuando el sistema operativo esté en tema oscuro.
+|=================================================================================================|
+*/
 @media (prefers-color-scheme: dark) {
     :root {
-        /* Colores del modo oscuro */
         --color-fondo-principal: #1D3535; 
         --color-tarjeta-fondo: #454c52; 
         --color-input-fondo: #5d6d7e; 
         --color-texto-principal: #f5f5f5; 
         --color-texto-secundario: #cacaca; 
-        --color-titulo-contrato: #d8c0ff; 
+        --color-titulo-contrato: #d8c0ff; /* Morado claro para el título */
         --color-marca-footer: #f5f5f5; 
         --color-icono-input: #ffffff; 
         
-        /* Variables de Texto y Línea para las Secciones */
         --color-seccion-texto: rgb(150, 150, 150); 
         --color-seccion-linea: rgba(80, 80, 80, 0.4); 
         
@@ -39,17 +47,23 @@
 }
 
 
-/* --- 3. APLICACIÓN DE ESTILOS BASE Y USABILIDAD --- */
+/*
+|=================================================================================================|
+| --- 3. ESTILOS BASE Y MAQUETACIÓN ---
+|=================================================================================================|
+*/
 
+/* Reset Básico y Transiciones */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif; 
+    /* Suaviza el cambio de color entre modo claro y oscuro */
     transition: background-color 0.3s, color 0.3s; 
 }
 
-/* HACE EL TEXTO NO SELECCIONABLE EN ELEMENTOS DE LECTURA */
+/* Evita que el texto de lectura sea seleccionable (títulos, etiquetas, footer) */
 .main-title, .section-label, .navbar p, .footer p {
     user-select: none;
     -webkit-user-select: none; 
@@ -57,7 +71,7 @@
     -ms-user-select: none; 
 }
 
-/* El fondo exterior ahora es variable. */
+/* Fondo principal de toda la página */
 html, body { 
     background-color: var(--color-fondo-principal); 
 }
@@ -85,9 +99,9 @@ body {
     cursor: pointer;
 }
 
-/* ESTILO DEL TEXTO "Algoritmo" */
+/* Estilo del texto "Algoritmo" en la Navbar */
 .navbar p {
-    color: #521fa5; 
+    color: #521fa5; /* Color morado fijo */
     font-size: 18px; 
     margin-left: 10px; 
 }
@@ -99,7 +113,7 @@ body {
     background-color: var(--color-tarjeta-fondo); 
     padding: 15px; 
     padding-bottom: 25px; 
-    margin-top: 3px; 
+    margin-top: 3px; /* Espacio compacto entre Navbar y Tarjeta */
     border-radius: 8px; 
     box-shadow: var(--box-shadow-tarjeta); 
 }
@@ -108,12 +122,12 @@ body {
 .main-title {
     text-align: center;
     font-size: 22px;
-    margin-bottom: 5px; /* AJUSTE FINAL: Se reduce la separación para pegarlo al input de Carga */
+    margin-bottom: 5px; /* Pega el título "Contrato #" al primer input */
     color: var(--color-titulo-contrato); 
     font-weight: 600;
 }
 
-/* --- SECCIÓN DE ETIQUETAS Y LÍNEA --- */
+/* --- SECCIÓN DE ETIQUETAS Y LÍNEA DIVISORIA ('Datos de Vehículo', etc.) --- */
 .section-label {
     display: block;
     text-align: center; 
@@ -124,11 +138,11 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px; 
     
-    /* Márgenes de separación: Más compacto */
-    margin: 10px 0 5px 0; /* Arriba: 10px, Abajo: 5px */
+    /* Márgenes de separación: Compacto */
+    margin: 10px 0 5px 0; 
     padding-bottom: 3px; 
 
-    /* APLICACIÓN DE LA LÍNEA INFERIOR CON OPACIDAD */
+    /* Línea inferior delgada y transparente */
     border-bottom: 1px solid var(--color-seccion-linea);
 }
 
@@ -142,17 +156,17 @@ body {
     padding: 12px; 
     color: var(--color-texto-principal); 
     font-size: 15px;
-    margin-bottom: 3px; 
+    margin-bottom: 3px; /* Margen muy compacto entre inputs */
     outline: none;
     
-    /* Permitir la selección de texto dentro de los inputs */
+    /* Permite la selección de texto dentro del campo */
     user-select: auto;
     -webkit-user-select: auto;
     -moz-user-select: auto;
     -ms-user-select: auto;
 }
 
-/* Placeholder color */
+/* Estilo del texto de ayuda dentro del campo (placeholder) */
 .custom-input::placeholder {
     color: var(--color-texto-secundario); 
     opacity: 0.7; 
@@ -163,19 +177,13 @@ body {
     box-shadow: 0 0 0 2px #007bff; 
 }
 
+/* Contenedor que alinea el ícono y el input */
 .input-wrapper {
     position: relative;
     margin-bottom: 5px; 
 }
 
-.select-input {
-    padding-left: 45px; 
-    background-color: var(--color-input-fondo); 
-    appearance: none; 
-    cursor: pointer;
-    color: var(--color-texto-principal); 
-}
-
+/* Icono a la izquierda del campo (ej. camión, tag) */
 .icon-left {
     position: absolute;
     left: 15px;
@@ -185,17 +193,7 @@ body {
     font-size: 18px; 
 }
 
-.icon-arrow {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--color-texto-principal); 
-    font-size: 12px;
-    pointer-events: none;
-}
-
-/* --- BOTONES (UNIFICADOS - Todos Azules) --- */
+/* --- BOTONES DE ACCIÓN --- */
 .action-buttons {
     margin-top: 10px; 
     display: flex;
@@ -215,7 +213,7 @@ body {
     letter-spacing: 0.5px;
     transition: background-color 0.2s;
     
-    background-color: #007bff; 
+    background-color: #007bff; /* Azul primario */
     color: white;
 }
 
@@ -223,7 +221,7 @@ body {
     background-color: #0056b3; 
 }
 
-/* --- FOOTER (Sobre el fondo exterior) --- */
+/* --- PIE DE PÁGINA (FOOTER) --- */
 .footer {
     margin-top: 10px; 
     text-align: center;
@@ -231,8 +229,9 @@ body {
     color: var(--color-texto-secundario); 
 }
 
+/* Párrafo del footer (incluye el ajuste manual de line-height) */
 .footer p {
-    line-height: 3; 
+    line-height: 3; /* NOTA: Alto espaciado vertical entre líneas */
     margin: 0; 
 }
 
