@@ -174,7 +174,7 @@ body {
 
 .footer p {
     /* Separación entre las dos líneas de copyright */
-    line-height: 1.4; /* Ligeramente más juntas */
+    line-height: 3; /* Ligeramente más juntas */
     margin: 0; 
 }
 
