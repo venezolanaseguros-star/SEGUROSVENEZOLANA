@@ -3,13 +3,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    /* Fuente limpia y común */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
 }
 
 body {
-    /* CAMBIO IMPORTANTE: Fondo principal más oscuro (#181818 o similar) */
+    /* Fondo principal muy oscuro */
     background-color: #181818; 
-    color: #ffffff;
+    color: #ffffff; /* Texto principal blanco */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +20,7 @@ body {
 /* --- BARRA SUPERIOR (Menu) --- */
 .navbar {
     width: 100%;
-    /* CAMBIO IMPORTANTE: Fondo de la barra superior aún más oscuro para contraste */
+    /* Fondo de la barra superior ligeramente más oscuro */
     background-color: #101010; 
     padding: 15px 20px;
     display: flex;
@@ -27,7 +28,7 @@ body {
 }
 
 .menu-icon {
-    color: #ffffff; /* Icono blanco */
+    color: #ffffff;
     font-size: 24px;
     cursor: pointer;
 }
@@ -36,74 +37,73 @@ body {
 .container {
     width: 100%;
     max-width: 450px; 
-    /* CAMBIO IMPORTANTE: Se elimina el fondo de la "tarjeta" y se usa el mismo fondo del body */
+    /* Fondo transparente, usando el color del body */
     background-color: transparent; 
     padding: 20px;
     padding-bottom: 40px;
     margin-top: 10px;
-    border-radius: 0; /* Sin bordes redondeados en el contenedor principal */
-    box-shadow: none; /* Sin sombra en el contenedor principal */
+    border-radius: 0;
+    box-shadow: none;
 }
 
-/* --- TÍTULOS --- */
+/* --- TÍTULOS Y ETIQUETAS --- */
 .main-title {
     text-align: center;
     font-size: 22px;
-    margin-bottom: 30px; /* Un poco más de espacio */
+    margin-bottom: 30px;
     color: #ffffff; 
     font-weight: 600;
 }
 
 .section-label {
-    /* CAMBIO IMPORTANTE: Color blanco (o muy claro) para los separadores */
+    /* Etiquetas blancas y en mayúsculas */
     color: #ffffff; 
-    font-size: 15px; /* Tamaño un poco más grande */
+    font-size: 15px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0; /* Sin espaciado de letra */
+    letter-spacing: 0;
     margin-bottom: 12px;
     margin-left: 0;
-    padding-top: 20px; /* Separación de la sección anterior */
+    padding-top: 20px;
 }
 
 .mt-medium {
-    margin-top: 20px; /* Ajuste menor */
+    margin-top: 20px;
 }
 
 /* --- INPUTS Y CAMPOS --- */
 .custom-input {
     width: 100%;
-    /* CAMBIO IMPORTANTE: Fondo de input es #262626 o similar para que se vea casi negro en el fondo #181818 */
+    /* Fondo de input gris oscuro (#262626) para diferenciarse del fondo principal (#181818) */
     background-color: #262626; 
     border: none;
-    border-radius: 4px; /* Un poco más cuadrado */
-    padding: 18px; /* Un poco más de padding vertical */
-    color: #ffffff; /* Texto dentro del input siempre blanco */
+    border-radius: 4px;
+    padding: 18px;
+    color: #ffffff; /* Texto dentro del input blanco */
     font-size: 15px;
-    margin-bottom: 12px; /* Un poco más de espacio entre inputs */
+    margin-bottom: 12px;
     outline: none;
 }
 
 /* Estilos para cuando seleccionas un campo */
 .custom-input:focus {
-    /* Mantiene un fondo similar, evita el cambio de color al seleccionar */
     background-color: #262626; 
-    /* Se puede usar una sombra sutil o un borde, pero en el ejemplo no hay */
-    box-shadow: none; 
+    /* Añadido: Resaltado con sombra azul para mejor usabilidad */
+    box-shadow: 0 0 0 2px #0d1e39; 
 }
 
-/* Wrapper especial para el Select con Icono */
+/* Select con Icono */
 .input-wrapper {
     position: relative;
-    margin-bottom: 20px; /* Menos espacio si hay varios */
+    margin-bottom: 20px;
 }
 
 .select-input {
-    /* El select es igual que los otros inputs */
     padding-left: 45px; 
     background-color: #262626; 
     appearance: none; 
     cursor: pointer;
+    /* Hereda todos los estilos de .custom-input */
 }
 
 .icon-left {
@@ -111,8 +111,8 @@ body {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #ffffff; /* Icono blanco */
-    font-size: 16px; /* Icono un poco más grande */
+    color: #ffffff;
+    font-size: 16px;
 }
 
 .icon-arrow {
@@ -120,52 +120,58 @@ body {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #ffffff; /* Flecha blanca */
+    color: #ffffff;
     font-size: 12px;
     pointer-events: none;
 }
 
 /* --- BOTONES --- */
 .action-buttons {
-    margin-top: 40px; /* Más espacio */
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Más espacio entre botones */
+    gap: 15px; /* Espacio entre botones */
 }
 
 .btn {
     width: 100%;
     padding: 16px;
     border: none;
-    border-radius: 0; /* CAMBIO IMPORTANTE: Bordes completamente cuadrados */
-    font-size: 14px; /* Un poco más grande */
+    border-radius: 0; /* Bordes cuadrados */
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s; /* Transición para efecto hover */
 }
 
-/* Botón Azul Principal (DESCARGAR CONTRATO) */
+/* Botón Azul Marino Principal (DESCARGAR CONTRATO) */
 .btn-blue {
-    /* CAMBIO IMPORTANTE: Color azul marino oscuro de las imágenes */
-    background-color: #0d1e39; 
+    background-color: #0d1e39; /* Azul marino oscuro */
     color: white;
 }
+.btn-blue:hover {
+    background-color: #1a3356; /* Ligeramente más claro al pasar el ratón */
+}
 
-/* Botón Oscuro (DESCARGAR CARNET) */
+/* Botón Oscuro Secundario (DESCARGAR CARNET) */
 .btn-dark {
-    /* CAMBIO IMPORTANTE: Gris oscuro de las imágenes */
-    background-color: #383838; 
+    background-color: #383838; /* Gris oscuro */
     color: white;
     border: none;
+}
+.btn-dark:hover {
+    background-color: #505050; /* Ligeramente más claro al pasar el ratón */
 }
 
 /* Botón Volver */
 .btn-volver {
-    /* CAMBIO IMPORTANTE: Fondo muy oscuro para el botón "VOLVER" */
-    background-color: #0b0c0f; 
+    background-color: #0b0c0f; /* Fondo muy oscuro, casi negro */
     color: white;
+}
+.btn-volver:hover {
+    background-color: #1a1b1d; /* Ligeramente más claro al pasar el ratón */
 }
 
 /* --- FOOTER --- */
@@ -173,10 +179,11 @@ body {
     margin-top: 40px;
     text-align: center;
     font-size: 14px;
-    color: #556066;
+    /* Mejor contraste que el color original */
+    color: #999999; 
 }
 
 .brand-name {
-    color: #ffffff; /* CAMBIO IMPORTANTE: Texto del año y el copyright más claro (blanco) */
+    color: #ffffff;
     font-weight: 500;
 }
