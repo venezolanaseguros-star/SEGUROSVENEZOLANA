@@ -1,3 +1,21 @@
+<div class="container">
+    <h1 class="main-title" id="titulo-contrato">Cargando...</h1>
+    
+    <div id="info-container" style="display: none;"> 
+        </div> 
+    </div> ```
+
+El problema es que la etiqueta `</div>` que cerraba el `div id="info-container"` estaba mal colocada, dejando el contenido principal (los *inputs*, los *botones*, etc.) dentro de un `div` que tenía el estilo **`style="display: none;"`** (oculto) en el código HTML que me pasaste.
+
+El código HTML que te proporcioné anteriormente corrigió el `<footer>`, pero movió todos tus elementos esenciales fuera del área visible.
+
+## ✅ Código HTML Corregido y Final
+
+Este código revierte la estructura interna y asegura que todos tus elementos (`h1`, `div id="info-container"`) estén dentro del `.container` visible, mientras que el `<footer>` queda fuera.
+
+> **ACCIÓN:** Copia y pega **este código completo** para reemplazar el contenido de tu archivo HTML. Este código soluciona el problema de los elementos faltantes y mantiene la estructura de margen correcta.
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,7 +40,7 @@
             El código de contrato proporcionado no existe o no se pudo cargar.
         </div>
 
-        <div id="info-container" style="display: none;">
+                <div id="info-container" style="display: none;">
             
            <div class="input-wrapper select-wrapper">
     <i class="fa-solid fa-file-invoice icon-left"></i>
