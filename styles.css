@@ -4,11 +4,15 @@
     --color-fondo-principal: #305C5E; /* Fondo general (claro) */
     --color-tarjeta-fondo: #ffffff; /* Blanco de la tarjeta */
     --color-input-fondo: #ebebeb; 
-    --color-texto-principal: #333333; /* Texto principal: Negro */
-    --color-texto-secundario: #666666; /* Texto de etiquetas: Gris */
+    --color-texto-principal: #333333; 
+    --color-texto-secundario: #666666; 
     --color-titulo-contrato: #333333; 
     --color-marca-footer: #333333; 
     --color-icono-input: #333333; 
+    
+    /* NUEVAS VARIABLES PARA LA LÍNEA/TEXTO DE SECCIÓN */
+    --color-seccion-linea: rgb(190, 190, 190); /* Gris claro para el texto/línea en modo claro */
+    
     --box-shadow-tarjeta: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -24,6 +28,10 @@
         --color-titulo-contrato: #d8c0ff; 
         --color-marca-footer: #f5f5f5; 
         --color-icono-input: #ffffff; 
+        
+        /* NUEVAS VARIABLES PARA LA LÍNEA/TEXTO DE SECCIÓN */
+        --color-seccion-linea: rgb(100, 100, 100); /* Gris oscuro para el texto/línea en modo oscuro */
+        
         --box-shadow-tarjeta: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
 }
@@ -45,7 +53,7 @@ html, body {
 }
 
 body {
-    color: var(--color-texto-principal); /* APLICADO: Texto base del body */
+    color: var(--color-texto-principal); 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,13 +64,13 @@ body {
 .navbar {
     width: 100%;
     background-color: var(--color-fondo-principal); 
-    padding: 10px 20px; /* Reducción de padding superior/inferior */
+    padding: 10px 20px; 
     display: flex;
     align-items: center;
 }
 
 .menu-icon {
-    color: var(--color-texto-principal); /* APLICADO: Color del ícono */
+    color: var(--color-texto-principal); 
     font-size: 20px; 
     cursor: pointer;
 }
@@ -88,20 +96,41 @@ body {
     font-weight: 600;
 }
 
+/* --- SECCIÓN DE ETIQUETAS Y LÍNEA (CORREGIDO) --- */
 .section-label {
-    color: var(--color-texto-secundario); /* APLICADO: Color de etiquetas */
+    /* Nueva configuración para centrar y usar la línea */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Asegura que el texto esté centrado si no es flex */
+    
+    color: var(--color-seccion-linea); /* APLICADO: Nuevo color variable para el texto */
     font-size: 14px; 
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px; 
-    margin-bottom: 5px; /* AJUSTE DE MARGEN: Reducción del margen inferior */
-    margin-left: 0;
-    padding-top: 10px; /* AJUSTE DE MARGEN: Reducción del padding superior */
+    
+    /* Márgenes del bloque */
+    margin-bottom: 15px; /* Separación debajo del bloque */
+    margin-top: 15px;  /* Separación arriba del bloque (Reemplaza .mt-medium) */
 }
 
-.mt-medium {
-    margin-top: 10px; /* AJUSTE DE MARGEN: Reducción */
+/* Creación de la línea antes del texto */
+.section-label::before,
+.section-label::after {
+    content: '';
+    flex-grow: 1; /* Permite que la línea ocupe el espacio disponible */
+    height: 1px;
+    background-color: var(--color-seccion-linea); /* APLICADO: Mismo color que el texto */
+    margin: 0 10px; /* Espacio entre el texto y la línea */
+    opacity: 0.7; /* Suaviza el color para dar el efecto de 'sombra' o más claro */
 }
+
+/* La clase mt-medium ya no es necesaria con el ajuste en .section-label */
+.mt-medium {
+    margin-top: 0; 
+}
+
 
 /* --- INPUTS Y CAMPOS --- */
 .custom-input {
@@ -109,14 +138,14 @@ body {
     background-color: var(--color-input-fondo); 
     border: none;
     border-radius: 5px; 
-    padding: 12px; /* Reducción ligera del padding interno */
-    color: var(--color-texto-principal); /* APLICADO: Color del texto dentro del input */
+    padding: 12px; 
+    color: var(--color-texto-principal); 
     font-size: 15px;
-    margin-bottom: 5px; /* AJUSTE DE MARGEN: Reducción del margen inferior */
+    margin-bottom: 5px; 
     outline: none;
 }
 
-/* Placeholder color (opcional, pero buena práctica) */
+/* Placeholder color */
 .custom-input::placeholder {
     color: var(--color-texto-secundario); 
     opacity: 0.7; 
@@ -129,7 +158,7 @@ body {
 
 .input-wrapper {
     position: relative;
-    margin-bottom: 10px; /* AJUSTE DE MARGEN: Reducción del margen inferior */
+    margin-bottom: 10px; 
 }
 
 .select-input {
@@ -137,7 +166,7 @@ body {
     background-color: var(--color-input-fondo); 
     appearance: none; 
     cursor: pointer;
-    color: var(--color-texto-principal); /* APLICADO: Color del texto dentro del select */
+    color: var(--color-texto-principal); 
 }
 
 .icon-left {
@@ -154,22 +183,22 @@ body {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--color-texto-principal); /* APLICADO: Color de la flecha del select */
+    color: var(--color-texto-principal); 
     font-size: 12px;
     pointer-events: none;
 }
 
 /* --- BOTONES (UNIFICADOS - Todos Azules) --- */
 .action-buttons {
-    margin-top: 15px; /* AJUSTE DE MARGEN: Reducción drástica */
+    margin-top: 15px; 
     display: flex;
     flex-direction: column;
-    gap: 8px; /* AJUSTE DE MARGEN: Reducción */
+    gap: 8px; 
 }
 
 .btn {
     width: 100%;
-    padding: 14px; /* Reducción del padding del botón */
+    padding: 14px; 
     border: none;
     border-radius: 5px; 
     font-size: 15px; 
@@ -189,14 +218,14 @@ body {
 
 /* --- FOOTER (Sobre el fondo exterior) --- */
 .footer {
-    margin-top: 15px; /* AJUSTE DE MARGEN: Reducción */
+    margin-top: 15px; 
     text-align: center;
     font-size: 14px;
-    color: var(--color-texto-secundario); /* APLICADO: Color del texto de copyright */
+    color: var(--color-texto-secundario); 
 }
 
 .footer p {
-    line-height: 2; /* Reducción ligera del interlineado */
+    line-height: 3; 
     margin: 0; 
 }
 
