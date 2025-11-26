@@ -1,12 +1,13 @@
-/* --- CONFIGURACIÓN BASE (Fiel a tus imágenes) --- */
+/* --- CONFIGURACIÓN BASE (FINAL) --- */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    /* Fuente que se asemeja al diseño moderno y limpio de la imagen */
+    font-family: 'Roboto', 'Montserrat', Arial, sans-serif; 
 }
 
-/* Color de fondo principal (Verde oscuro/Gris azulado) */
+/* Color de fondo principal (Verde oscuro/Gris azulado de la imagen) */
 html, body { 
     background-color: #2F4F4F; 
 }
@@ -22,8 +23,8 @@ body {
 /* --- BARRA SUPERIOR (Navbar) --- */
 .navbar {
     width: 100%;
-    /* Mismo color del contenedor para que la barra no destaque */
-    background-color: #36454F; 
+    /* Usa un color que contraste ligeramente o que sea igual al container */
+    background-color: #465662; 
     padding: 15px 20px;
     display: flex;
     align-items: center;
@@ -39,13 +40,13 @@ body {
 .container {
     width: 100%;
     max-width: 450px; 
-    /* Fondo del contenedor (Gris azulado) */
-    background-color: #36454F; 
+    /* FONDO DEL CONTENEDOR: Tono un poco más claro para separar del body */
+    background-color: #465662; 
     padding: 20px;
     padding-bottom: 40px; 
-    margin-top: 10px;
+    margin-top: 15px; /* Separación de la parte superior */
     border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra más fuerte */
 }
 
 /* --- TÍTULOS Y ETIQUETAS --- */
@@ -58,7 +59,8 @@ body {
 }
 
 .section-label {
-    color: #e0e0e0; 
+    /* ETIQUETA: Color gris claro, no blanco puro */
+    color: #cacaca; 
     font-size: 14px; 
     font-weight: 500;
     text-transform: uppercase;
@@ -75,8 +77,8 @@ body {
 /* --- INPUTS Y CAMPOS --- */
 .custom-input {
     width: 100%;
-    /* Fondo de input más claro que el contenedor */
-    background-color: #4D6474; 
+    /* Fondo de input más claro que el contenedor, para el efecto de capa */
+    background-color: #5d6d7e; 
     border: none;
     border-radius: 5px; 
     padding: 15px; 
@@ -87,7 +89,7 @@ body {
 }
 
 .custom-input:focus {
-    background-color: #4D6474; 
+    background-color: #5d6d7e; 
     box-shadow: 0 0 0 2px #007bff; 
 }
 
@@ -98,7 +100,7 @@ body {
 
 .select-input {
     padding-left: 45px; 
-    background-color: #4D6474; 
+    background-color: #5d6d7e; 
     appearance: none; 
     cursor: pointer;
 }
@@ -122,7 +124,7 @@ body {
     pointer-events: none;
 }
 
-/* --- BOTONES (UNIFICADOS) --- */
+/* --- BOTONES (UNIFICADOS - Todos Azules) --- */
 .action-buttons {
     margin-top: 35px; 
     display: flex;
@@ -143,22 +145,20 @@ body {
     transition: background-color 0.2s;
     
     /* ESTILOS AZULES UNIFICADOS PARA TODOS LOS BOTONES */
-    background-color: #007bff; /* Color azul estándar de las imágenes */
+    background-color: #007bff; 
     color: white;
 }
 
 .btn:hover {
-    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    background-color: #0056b3; 
 }
-
-/* Las clases .btn-blue, .btn-dark, .btn-volver NO son necesarias ya que .btn lo maneja todo. */
-
 
 /* --- FOOTER --- */
 .footer {
     margin-top: 30px;
     text-align: center;
     font-size: 14px;
+    /* Color de texto del footer como en las imágenes */
     color: #bbbbbb; 
 }
 
