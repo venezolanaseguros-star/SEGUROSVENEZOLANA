@@ -33,7 +33,7 @@ body {
 
 .menu-icon {
     color: #f5f5f5;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
 }
 
@@ -43,8 +43,8 @@ body {
     max-width: 450px; 
     /* Fondo de la tarjeta: Tono más claro que el body */
     background-color: #454c52; 
-    padding: 20px;
-    padding-bottom: 40px; 
+    padding: 15px;
+    padding-bottom: 35px; 
     /* Margen reducido para acercar el contenedor a la navbar */
     margin-top: 10px; 
     border-radius: 8px; 
