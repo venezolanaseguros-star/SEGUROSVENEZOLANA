@@ -33,6 +33,7 @@ body {
 
 .menu-icon {
     color: #f5f5f5;
+    /* CAMBIO MANUAL ACEPTADO: 20px */
     font-size: 20px;
     cursor: pointer;
 }
@@ -41,8 +42,9 @@ body {
 .container {
     width: 100%;
     max-width: 450px; 
-    /* Fondo de la tarjeta: Tono más claro que el body */
+    /* CAMBIO MANUAL ACEPTADO: Fondo de la tarjeta */
     background-color: #454c52; 
+    /* CAMBIO MANUAL ACEPTADO: Padding más pequeño */
     padding: 15px;
     padding-bottom: 35px; 
     /* Margen reducido para acercar el contenedor a la navbar */
@@ -55,8 +57,9 @@ body {
 .main-title {
     text-align: center;
     font-size: 22px;
-    margin-bottom: 25px; 
-    /* CORRECCIÓN FINAL: Color morado/lavanda claro para destacar el título del contrato */
+    /* MARGEN REDUCIDO: 25px -> 20px para el título */
+    margin-bottom: 20px; 
+    /* Color morado/lavanda claro para destacar el título del contrato */
     color: #d8c0ff; 
     font-weight: 600;
 }
@@ -68,27 +71,29 @@ body {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px; 
-    margin-bottom: 12px;
+    /* MARGEN REDUCIDO: 12px -> 10px antes de los inputs */
+    margin-bottom: 10px;
     margin-left: 0;
-    padding-top: 20px;
+    /* MARGEN REDUCIDO: 20px -> 15px para la separación de sección */
+    padding-top: 15px; 
 }
 
 .mt-medium {
-    margin-top: 20px;
+    /* MARGEN REDUCIDO: 20px -> 15px para la separación de sección */
+    margin-top: 15px;
 }
 
 /* --- INPUTS Y CAMPOS --- */
 .custom-input {
     width: 100%;
-    /* Fondo de input más claro que el contenedor */
     background-color: #5d6d7e; 
     border: none;
     border-radius: 5px; 
     padding: 15px; 
-    /* Texto del input más brillante/blanco */
     color: #f5f5f5; 
     font-size: 15px;
-    margin-bottom: 10px; 
+    /* MARGEN REDUCIDO: 10px -> 8px entre inputs */
+    margin-bottom: 8px; 
     outline: none;
 }
 
@@ -99,7 +104,8 @@ body {
 
 .input-wrapper {
     position: relative;
-    margin-bottom: 20px;
+    /* MARGEN REDUCIDO: 20px -> 15px después del select */
+    margin-bottom: 15px;
 }
 
 .select-input {
@@ -114,7 +120,6 @@ body {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    /* CORRECCIÓN FINAL: Color más brillante para el ícono de la hoja */
     color: #ffffff; 
     font-size: 18px; 
 }
@@ -131,10 +136,11 @@ body {
 
 /* --- BOTONES (UNIFICADOS - Todos Azules) --- */
 .action-buttons {
-    margin-top: 35px; 
+    /* MARGEN REDUCIDO: 35px -> 25px para acercar los botones al último input */
+    margin-top: 25px; 
     display: flex;
     flex-direction: column;
-    gap: 12px; 
+    gap: 10px; /* Reducir ligeramente el espacio entre botones */
 }
 
 .btn {
@@ -159,7 +165,8 @@ body {
 
 /* --- FOOTER (Sobre el fondo oscuro exterior) --- */
 .footer {
-    margin-top: 35px; /* Más separación de la tarjeta principal */
+    /* MARGEN REDUCIDO: 35px -> 25px para acercar el footer a la tarjeta */
+    margin-top: 25px;
     text-align: center;
     font-size: 14px;
     color: #bbbbbb; 
@@ -167,7 +174,7 @@ body {
 
 .footer p {
     /* Separación entre las dos líneas de copyright */
-    line-height: 1.5; 
+    line-height: 1.4; /* Ligeramente más juntas */
     margin: 0; 
 }
 
