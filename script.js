@@ -1,6 +1,6 @@
 /**
  * ======================================================
- * SCRIPT.JS FINAL - LÓGICA DE CONSULTA, DESCARGA Y TEMAS
+ * SCRIPT.JS FINAL - LÓGICA DE CONSULTA, DESCARGA Y VOLVER
  * ======================================================
  */
 
@@ -16,19 +16,19 @@ function obtenerIdContrato() {
 }
 
 // ------------------------------------------------------------------
-// 2. FUNCIÓN PARA CARGAR Y MOSTRAR LOS DATOS (VERSIÓN FINAL CORREGIDA)
+// 2. FUNCIÓN PARA CARGAR Y MOSTRAR LOS DATOS
 // ------------------------------------------------------------------
 function cargarDatos(id, datos) {
     // Guarda los datos del contrato cargado en la variable global
     datosContratoActual = datos; 
 
-    // Título (Usa .innerText)
+    // Título
     document.getElementById('titulo-contrato').innerText = `Contrato #${id}`;
     
-    // Carga (Usa .value y el ID 'carga-value')
+    // Carga
     document.getElementById('carga-value').value = datos.carga; 
 
-    // Datos del Vehículo (Usa .VALUE para todos los INPUTS)
+    // Datos del Vehículo
     document.getElementById('v-codigo').value = datos.vehiculo.codigo;
     document.getElementById('v-tipo').value = datos.vehiculo.tipo;
     document.getElementById('v-placa').value = datos.vehiculo.placa;
@@ -36,7 +36,7 @@ function cargarDatos(id, datos) {
     document.getElementById('v-color').value = datos.vehiculo.color;
     document.getElementById('v-ejes').value = datos.vehiculo.ejes;
 
-    // Datos del Carnet (Usa .VALUE para todos los INPUTS)
+    // Datos del Carnet
     document.getElementById('c-placa').value = datos.carnet.placa;
     document.getElementById('c-marca').value = datos.carnet.marca;
     document.getElementById('c-modelo').value = datos.carnet.modelo;
@@ -70,10 +70,8 @@ function descargarPDF(tipo) {
     let urlArchivo = "";
 
     if (tipo === 'contrato') {
-        // Usa el campo 'pdfContrato' generado por Excel (Columna O)
         urlArchivo = datosContratoActual.pdfContrato; 
     } else if (tipo === 'carnet') {
-        // Usa el campo 'pdfCarnet' generado por Excel (Columna P)
         urlArchivo = datosContratoActual.pdfCarnet;
     }
 
@@ -90,66 +88,19 @@ function descargarPDF(tipo) {
 // 5. FUNCIÓN PARA VOLVER (Asociada al botón VOLVER)
 // ------------------------------------------------------------------
 function volver() {
-    // Opción 1: Redirigir a la página principal o de escaneo
-    // Por ejemplo, si la página principal es 'index.html'
-    // window.location.href = 'index.html'; 
-
-    // Opción 2: Simplemente regresar al historial anterior del navegador
+    // Regresar al historial anterior del navegador
     window.history.back();
 }
 
 
 // ------------------------------------------------------------------
-// 6. LÓGICA DE MODO OSCURO / MODO CLARO
-// ------------------------------------------------------------------
-function configurarManejadorTemas() {
-    const body = document.body;
-    const menuIcon = document.querySelector('.menu-icon');
-    
-    // Función auxiliar para aplicar el tema
-    const aplicarTema = (theme) => {
-        if (theme === 'dark') {
-            body.classList.add('dark-mode');
-        } else {
-            body.classList.remove('dark-mode');
-        }
-    };
-
-    // --- Carga Inicial del Tema ---
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    let currentTheme = localStorage.getItem('theme');
-
-    // Si no hay tema guardado, usar la preferencia del sistema
-    if (!currentTheme) {
-        currentTheme = systemPrefersDark ? 'dark' : 'light';
-    }
-    
-    aplicarTema(currentTheme);
-
-    // --- Manejador del Click para Alternar Tema (Menú) ---
-    if (menuIcon) {
-        menuIcon.addEventListener('click', () => {
-            // Alternar la clase 'dark-mode'
-            body.classList.toggle('dark-mode');
-            
-            // Guardar la nueva preferencia en localStorage
-            const newTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-            localStorage.setItem('theme', newTheme);
-            
-            console.log("Tema cambiado a: " + newTheme);
-        });
-    }
-}
-
-
-// ------------------------------------------------------------------
-// 7. FUNCIÓN DE INICIO PRINCIPAL Y PUNTO DE ENTRADA
+// 6. FUNCIÓN DE INICIO PRINCIPAL Y PUNTO DE ENTRADA
 // ------------------------------------------------------------------
 function init() {
-    // 1. Configurar la detección y el interruptor del tema
-    configurarManejadorTemas(); 
-    
-    // 2. Intentar cargar los datos del contrato
+    // El ícono de menú (.menu-icon) queda sin función de tema, esperando
+    // la implementación futura de mostrar la imagen/menú lateral.
+
+    // Intentar cargar los datos del contrato
     const idContrato = obtenerIdContrato();
 
     // Comprueba que la base de datos esté cargada desde datos.js
