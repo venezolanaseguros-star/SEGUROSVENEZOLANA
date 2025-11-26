@@ -1,8 +1,8 @@
 /* --- 1. DEFINICIÓN DE VARIABLES (Por defecto: MODO CLARO) --- */
 :root {
     /* Colores del modo claro */
-    --color-fondo-principal: #305C5E; /* Fondo general (claro) */
-    --color-tarjeta-fondo: #ffffff; /* Blanco de la tarjeta */
+    --color-fondo-principal: #305C5E; 
+    --color-tarjeta-fondo: #ffffff; 
     --color-input-fondo: #ebebeb; 
     --color-texto-principal: #333333; 
     --color-texto-secundario: #666666; 
@@ -11,8 +11,8 @@
     --color-icono-input: #333333; 
     
     /* Variables de Texto y Línea para las Secciones */
-    --color-seccion-texto: rgb(100, 100, 100); /* Gris oscuro para el texto de sección (Claro) */
-    --color-seccion-linea: rgb(190, 190, 190); /* Gris claro para la línea (Claro) */
+    --color-seccion-texto: rgb(100, 100, 100); 
+    --color-seccion-linea: rgba(190, 190, 190, 0.4); /* AJUSTE DE OPACIDAD: Línea más transparente (40% opacidad) */
     
     --box-shadow-tarjeta: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -21,7 +21,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         /* Colores del modo oscuro */
-        --color-fondo-principal: #1D3535; /* Fondo general (oscuro) */
+        --color-fondo-principal: #1D3535; 
         --color-tarjeta-fondo: #454c52; 
         --color-input-fondo: #5d6d7e; 
         --color-texto-principal: #f5f5f5; 
@@ -31,15 +31,15 @@
         --color-icono-input: #ffffff; 
         
         /* Variables de Texto y Línea para las Secciones */
-        --color-seccion-texto: rgb(150, 150, 150); /* Gris medio para el texto de sección (Oscuro) */
-        --color-seccion-linea: rgb(80, 80, 80); /* Gris muy oscuro para la línea (Oscuro) */
+        --color-seccion-texto: rgb(150, 150, 150); 
+        --color-seccion-linea: rgba(80, 80, 80, 0.4); /* AJUSTE DE OPACIDAD: Línea más transparente (40% opacidad) */
         
         --box-shadow-tarjeta: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
 }
 
 
-/* --- 3. APLICACIÓN DE ESTILOS BASE --- */
+/* --- 3. APLICACIÓN DE ESTILOS BASE Y USABILIDAD --- */
 
 * {
     box-sizing: border-box;
@@ -47,6 +47,20 @@
     padding: 0;
     font-family: Arial, sans-serif; 
     transition: background-color 0.3s, color 0.3s; 
+    
+    /* HACER EL TEXTO NO SELECCIONABLE */
+    user-select: none; /* Estándar */
+    -webkit-user-select: none; /* Navegadores WebKit (Chrome, Safari) */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Edge/IE */
+}
+
+/* Permite la selección dentro de los inputs para poder ingresar el código */
+.custom-input {
+    user-select: auto !important;
+    -webkit-user-select: auto !important;
+    -moz-user-select: auto !important;
+    -ms-user-select: auto !important;
 }
 
 /* El fondo exterior ahora es variable. */
@@ -77,11 +91,11 @@ body {
     cursor: pointer;
 }
 
-/* ESTILO DEL TEXTO "Algoritmo" (Morado, más grande) */
+/* ESTILO DEL TEXTO "Algoritmo" */
 .navbar p {
-    color: #D8C0FF; /* Morado fijo en ambos modos */
-    font-size: 18px; /* Tamaño de letra más grande */
-    margin-left: 10px; /* Separación del ícono de menú */
+    color: #D8C0FF; 
+    font-size: 18px; 
+    margin-left: 10px; 
 }
 
 /* --- CONTENEDOR TIPO MÓVIL (La "tarjeta" principal) --- */
@@ -91,7 +105,7 @@ body {
     background-color: var(--color-tarjeta-fondo); 
     padding: 15px; 
     padding-bottom: 25px; 
-    margin-top: 3px; /* AJUSTE FINAL DE MARGEN: 3px */
+    margin-top: 3px; 
     border-radius: 8px; 
     box-shadow: var(--box-shadow-tarjeta); 
 }
@@ -100,37 +114,32 @@ body {
 .main-title {
     text-align: center;
     font-size: 22px;
-    margin-bottom: 15px; 
+    margin-bottom: 10px; /* AJUSTE DE MARGEN: Reducción del margen inferior */
     color: var(--color-titulo-contrato); 
     font-weight: 600;
 }
 
-/* --- SECCIÓN DE ETIQUETAS Y LÍNEA (CORREGIDO: Línea inferior) --- */
+/* --- SECCIÓN DE ETIQUETAS Y LÍNEA --- */
 .section-label {
-    /* Eliminamos el Flexbox anterior */
     display: block;
     text-align: center; 
     
-    color: var(--color-seccion-texto); /* Texto gris/claro según el modo */
+    color: var(--color-seccion-texto); 
     font-size: 14px; 
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px; 
     
-    /* Márgenes de separación */
-    margin: 15px 0 10px 0; /* Arriba: 15px, Abajo: 10px */
-    padding-bottom: 5px; /* Espacio para la línea debajo del texto */
+    /* Márgenes de separación: Más compacto */
+    margin: 10px 0 5px 0; /* AJUSTE DE MARGEN: Arriba: 10px, Abajo: 5px */
+    padding-bottom: 3px; /* AJUSTE DE MARGEN: Línea más cerca del texto */
 
-    /* APLICACIÓN DE LA LÍNEA INFERIOR */
+    /* APLICACIÓN DE LA LÍNEA INFERIOR CON OPACIDAD */
     border-bottom: 1px solid var(--color-seccion-linea);
 }
 
-.mt-medium {
-    margin-top: 0; 
-}
 
-
-/* --- INPUTS Y CAMPOS (Se mantienen los márgenes ajustados) --- */
+/* --- INPUTS Y CAMPOS --- */
 .custom-input {
     width: 100%;
     background-color: var(--color-input-fondo); 
@@ -139,7 +148,7 @@ body {
     padding: 12px; 
     color: var(--color-texto-principal); 
     font-size: 15px;
-    margin-bottom: 5px; 
+    margin-bottom: 3px; /* AJUSTE DE MARGEN: Reducción del margen inferior */
     outline: none;
 }
 
@@ -156,7 +165,7 @@ body {
 
 .input-wrapper {
     position: relative;
-    margin-bottom: 10px; 
+    margin-bottom: 5px; /* AJUSTE DE MARGEN: Reducción del margen inferior */
 }
 
 .select-input {
@@ -188,10 +197,10 @@ body {
 
 /* --- BOTONES (UNIFICADOS - Todos Azules) --- */
 .action-buttons {
-    margin-top: 15px; 
+    margin-top: 10px; /* AJUSTE DE MARGEN: Reducción */
     display: flex;
     flex-direction: column;
-    gap: 8px; 
+    gap: 5px; /* AJUSTE DE MARGEN: Reducción de la separación entre botones */
 }
 
 .btn {
@@ -216,14 +225,14 @@ body {
 
 /* --- FOOTER (Sobre el fondo exterior) --- */
 .footer {
-    margin-top: 15px; 
+    margin-top: 10px; /* AJUSTE DE MARGEN: Reducción */
     text-align: center;
     font-size: 14px;
     color: var(--color-texto-secundario); 
 }
 
 .footer p {
-    line-height: 3; 
+    line-height: 1.3; 
     margin: 0; 
 }
 
