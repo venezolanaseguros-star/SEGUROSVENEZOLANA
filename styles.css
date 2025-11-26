@@ -157,12 +157,12 @@ body {
 
 /* Botón Oscuro Secundario (DESCARGAR CARNET) */
 .btn-dark {
-    background-color: #383838; /* Gris oscuro */
+    background-color: #0d1e39; /* Azul marino oscuro */
     color: white;
     border: none;
 }
 .btn-dark:hover {
-    background-color: #505050; /* Ligeramente más claro al pasar el ratón */
+    background-color: #1a3356; /* Ligeramente más claro al pasar el ratón */
 }
 
 /* Botón Volver */
