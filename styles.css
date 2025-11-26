@@ -1,20 +1,19 @@
-/* --- CONFIGURACIÓN BASE (FINAL y EXACTA - Fiel a tus imágenes) --- */
+/* --- CONFIGURACIÓN BASE (MODO CLARO - Colores de la última imagen) --- */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* Fuente que usa el sistema operativo por defecto */
     font-family: Arial, sans-serif; 
 }
 
-/* Color de fondo principal (Verde oscuro/Gris azulado) */
+/* Color de fondo principal (Gris muy claro/Casi blanco) */
 html, body { 
-    background-color: #2F4F4F; 
+    background-color: #f7f7f7; 
 }
 
 body {
-    /* COLOR DE TEXTO BASE: Gris muy claro (no blanco puro) */
-    color: #f5f5f5;
+    /* COLOR DE TEXTO BASE: Gris oscuro/Negro */
+    color: #333333;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,15 +24,15 @@ body {
 .navbar {
     width: 100%;
     /* El fondo de la navbar se funde con el fondo del body */
-    background-color: #2F4F4F; 
+    background-color: #f7f7f7; 
     padding: 15px 20px;
     display: flex;
     align-items: center;
 }
 
 .menu-icon {
-    color: #f5f5f5;
-    /* CAMBIO MANUAL ACEPTADO: 20px */
+    /* Color del ícono del menú: Negro */
+    color: #333333; 
     font-size: 20px;
     cursor: pointer;
 }
@@ -42,75 +41,69 @@ body {
 .container {
     width: 100%;
     max-width: 450px; 
-    /* CAMBIO MANUAL ACEPTADO: Fondo de la tarjeta */
-    background-color: #454c52; 
-    /* CAMBIO MANUAL ACEPTADO: Padding más pequeño */
+    /* Fondo de la tarjeta: Blanco/Gris Claro */
+    background-color: #ffffff; 
     padding: 15px;
     padding-bottom: 35px; 
-    /* Margen reducido para acercar el contenedor a la navbar */
     margin-top: 10px; 
     border-radius: 8px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más sutil para modo claro */
 }
 
 /* --- TÍTULOS Y ETIQUETAS --- */
 .main-title {
     text-align: center;
     font-size: 22px;
-    /* MARGEN REDUCIDO: 25px -> 20px para el título */
     margin-bottom: 20px; 
-    /* Color morado/lavanda claro para destacar el título del contrato */
-    color: #d8c0ff; 
+    /* Color del título: Negro/Gris oscuro */
+    color: #333333; 
     font-weight: 600;
 }
 
 .section-label {
-    /* ETIQUETA: Color gris claro, un poco más oscuro que el texto base */
-    color: #cacaca; 
+    /* ETIQUETA: Color gris medio */
+    color: #666666; 
     font-size: 14px; 
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px; 
-    /* MARGEN REDUCIDO: 12px -> 10px antes de los inputs */
     margin-bottom: 10px;
     margin-left: 0;
-    /* MARGEN REDUCIDO: 20px -> 15px para la separación de sección */
     padding-top: 15px; 
 }
 
 .mt-medium {
-    /* MARGEN REDUCIDO: 20px -> 15px para la separación de sección */
     margin-top: 15px;
 }
 
 /* --- INPUTS Y CAMPOS --- */
 .custom-input {
     width: 100%;
-    background-color: #5d6d7e; 
+    /* Fondo de input: Gris muy claro/Beige */
+    background-color: #ebebeb; 
     border: none;
     border-radius: 5px; 
     padding: 15px; 
-    color: #f5f5f5; 
+    /* Texto del input: Negro/Gris oscuro */
+    color: #333333; 
     font-size: 15px;
-    /* MARGEN REDUCIDO: 10px -> 8px entre inputs */
     margin-bottom: 8px; 
     outline: none;
 }
 
 .custom-input:focus {
-    background-color: #5d6d7e; 
+    background-color: #ebebeb; 
     box-shadow: 0 0 0 2px #007bff; 
 }
 
 .input-wrapper {
     position: relative;
-    /* MARGEN REDUCIDO: 20px -> 15px después del select */
     margin-bottom: 15px;
 }
 
 .select-input {
     padding-left: 45px; 
-    background-color: #5d6d7e; 
+    background-color: #ebebeb; 
     appearance: none; 
     cursor: pointer;
 }
@@ -120,7 +113,8 @@ body {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #ffffff; 
+    /* Color del ícono: Negro/Gris oscuro */
+    color: #333333; 
     font-size: 18px; 
 }
 
@@ -129,18 +123,18 @@ body {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #f5f5f5;
+    /* Color del ícono: Negro/Gris oscuro */
+    color: #333333; 
     font-size: 12px;
     pointer-events: none;
 }
 
-/* --- BOTONES (UNIFICADOS - Todos Azules) --- */
+/* --- BOTONES (UNIFICADOS - Colores más vivos en modo claro) --- */
 .action-buttons {
-    /* MARGEN REDUCIDO: 35px -> 25px para acercar los botones al último input */
     margin-top: 25px; 
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Reducir ligeramente el espacio entre botones */
+    gap: 10px; 
 }
 
 .btn {
@@ -155,7 +149,7 @@ body {
     letter-spacing: 0.5px;
     transition: background-color 0.2s;
     
-    background-color: #007bff; 
+    background-color: #007bff; /* Azul vibrante */
     color: white;
 }
 
@@ -163,22 +157,22 @@ body {
     background-color: #0056b3; 
 }
 
-/* --- FOOTER (Sobre el fondo oscuro exterior) --- */
+/* --- FOOTER (Sobre el fondo claro exterior) --- */
 .footer {
-    /* MARGEN REDUCIDO: 35px -> 25px para acercar el footer a la tarjeta */
-    margin-top: 25px;
+    margin-top: 25px; 
     text-align: center;
     font-size: 14px;
-    color: #bbbbbb; 
+    /* Texto de copyright en gris oscuro */
+    color: #666666; 
 }
 
 .footer p {
-    /* Separación entre las dos líneas de copyright */
-    line-height: 3; /* Ligeramente más juntas */
+    line-height: 1.4; 
     margin: 0; 
 }
 
 .brand-name {
-    color: #f5f5f5;
+    /* Nombre de marca en negro */
+    color: #333333;
     font-weight: 500;
 }
