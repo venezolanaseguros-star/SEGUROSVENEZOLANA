@@ -1,137 +1,67 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Consulta de Contrato</title>
-
-   
-
-        <link rel="stylesheet" href="styles.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Contrato</title>
+   
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
 
+    <nav class="navbar">
+        <i class="fa-solid fa-bars menu-icon"></i>
+    </nav>
 
+        <div class="container">
 
-    <nav class="navbar">
+        <h1 class="main-title" id="titulo-contrato">Cargando...</h1>
+       
+        <div id="error-message" style="display: none; color: red; text-align: center; margin: 20px; font-weight: bold;">
+            El código de contrato proporcionado no existe o no se pudo cargar.
+        </div>
 
-        <i class="fa-solid fa-bars menu-icon"></i>
-
-    </nav>
-
-
-
-    <div class="container">
-
-
-
-        <h1 class="main-title" id="titulo-contrato">Cargando...</h1>
-
-       
-
-        <div id="error-message" style="display: none; color: red; text-align: center; margin: 20px; font-weight: bold;">
-
-            El código de contrato proporcionado no existe o no se pudo cargar.
-
-        </div>
-
-
-
-        <div id="info-container" style="display: none;">
-
-           
-
-           <div class="input-wrapper select-wrapper">
-
-    <i class="fa-solid fa-file-invoice icon-left"></i>
-
-   
-
-    <input type="text" class="custom-input select-input" id="carga-value" readonly>
-
-   
-
-    <i class="fa-solid fa-chevron-down icon-arrow"></i>
-
+        <div id="info-container" style="display: none;">
+           
+           <div class="input-wrapper select-wrapper">
+    <i class="fa-solid fa-file-invoice icon-left"></i>
+   
+    <input type="text" class="custom-input select-input" id="carga-value" readonly>
+   
+    <i class="fa-solid fa-chevron-down icon-arrow"></i>
 </div>
 
+            <div class="section-label">DATOS DEL VEHÍCULO</div>
+            <form id="form-vehiculo">
+                <input type="text" class="custom-input" id="v-codigo" readonly>
+                <input type="text" class="custom-input" id="v-tipo" readonly>
+                <input type="text" class="custom-input" id="v-placa" readonly>
+                <input type="text" class="custom-input" id="v-carroceria" readonly>
+                <input type="text" class="custom-input" id="v-color" readonly>
+                <input type="text" class="custom-input" id="v-ejes" readonly>
+            </form>
 
+            <div class="section-label mt-medium">DATOS DEL CARNET DE CIRCULACIÓN</div>
+            <form id="form-carnet">
+                <input type="text" class="custom-input" id="c-placa" readonly>
+                <input type="text" class="custom-input" id="c-marca" readonly>
+                <input type="text" class="custom-input" id="c-modelo" readonly>
+                <input type="text" class="custom-input" id="c-anio" readonly>
+            </form>
 
-            <div class="section-label">DATOS DEL VEHÍCULO</div>
+            <div class="action-buttons">
+                <button onclick="descargarPDF('contrato')" class="btn btn-blue">DESCARGAR CONTRATO</button>
+                <button onclick="descargarPDF('carnet')" class="btn btn-blue">DESCARGAR CARNET</button>
+                <button class="btn btn-blue" onclick="volver()">VOLVER</button>
+            </div>
 
-            <form id="form-vehiculo">
+        </div>     </div> <footer class="footer">
+        <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
+        <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
+    </footer>
 
-                <input type="text" class="custom-input" id="v-codigo" readonly>
-
-                <input type="text" class="custom-input" id="v-tipo" readonly>
-
-                <input type="text" class="custom-input" id="v-placa" readonly>
-
-                <input type="text" class="custom-input" id="v-carroceria" readonly>
-
-                <input type="text" class="custom-input" id="v-color" readonly>
-
-                <input type="text" class="custom-input" id="v-ejes" readonly>
-
-            </form>
-
-
-
-            <div class="section-label mt-medium">DATOS DEL CARNET DE CIRCULACIÓN</div>
-
-            <form id="form-carnet">
-
-                <input type="text" class="custom-input" id="c-placa" readonly>
-
-                <input type="text" class="custom-input" id="c-marca" readonly>
-
-                <input type="text" class="custom-input" id="c-modelo" readonly>
-
-                <input type="text" class="custom-input" id="c-anio" readonly>
-
-            </form>
-
-
-
-<div class="action-buttons">
-
-    <button onclick="descargarPDF('contrato')" class="btn btn-blue">DESCARGAR CONTRATO</button>
-
-    <button onclick="descargarPDF('carnet')" class="btn btn-blue">DESCARGAR CARNET</button>
-
-    <button class="btn btn-blue" onclick="volver()">VOLVER</button>
-
-</div>
-
-
-
-<footer class="footer">
-
-  <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
-
-                <p>© 2025 <span class="brand-name">Artgoritmo</span></p>
-
-            </footer>
-
-        </div>
-
-        </div>
-
-
-
-    <script src="./datos.js"></script>
-
-    <script src="./script.js"></script>
-
+    <script src="./datos.js"></script>
+    <script src="./script.js"></script>
 </body>
-
-</html> 
+</html>
