@@ -1,19 +1,50 @@
-/* --- CONFIGURACIÓN BASE (MODO CLARO - Colores de la última imagen) --- */
+/* --- 1. DEFINICIÓN DE VARIABLES (Por defecto: MODO CLARO) --- */
+:root {
+    /* Colores del modo claro (basado en la última imagen) */
+    --color-fondo-principal: #f7f7f7; /* Gris muy claro/Casi blanco */
+    --color-tarjeta-fondo: #ffffff; /* Blanco de la tarjeta */
+    --color-input-fondo: #ebebeb; /* Fondo de inputs claro */
+    --color-texto-principal: #333333; /* Texto oscuro/Negro */
+    --color-texto-secundario: #666666; /* Texto gris de etiquetas */
+    --color-titulo-contrato: #333333; /* Título Contrato: Negro */
+    --color-marca-footer: #333333; /* Nombre de marca en negro */
+    --color-icono-input: #333333; /* Icono en negro */
+    --box-shadow-tarjeta: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 2. BLOQUE DE MODO OSCURO --- */
+/* Esta regla se aplica solo cuando la clase 'dark-mode' está activa en el body/html */
+.dark-mode {
+    /* Colores del modo oscuro (basado en la primera imagen) */
+    --color-fondo-principal: #2F4F4F; /* Verde oscuro */
+    --color-tarjeta-fondo: #454c52; /* Fondo de tarjeta oscuro (Tu ajuste manual) */
+    --color-input-fondo: #5d6d7e; /* Fondo de inputs oscuro */
+    --color-texto-principal: #f5f5f5; /* Texto muy claro/Casi blanco */
+    --color-texto-secundario: #cacaca; /* Etiquetas gris claro */
+    --color-titulo-contrato: #d8c0ff; /* Título Contrato: Lavanda */
+    --color-marca-footer: #f5f5f5; /* Nombre de marca en blanco */
+    --color-icono-input: #ffffff; /* Icono en blanco */
+    --box-shadow-tarjeta: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+/* --- 3. APLICACIÓN DE LAS VARIABLES Y AJUSTES DE ESPACIO --- */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif; 
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
 }
 
-/* Color de fondo principal (Gris muy claro/Casi blanco) */
+/* Color de fondo principal (Verde oscuro/Gris azulado) */
 html, body { 
-    background-color: #f7f7f7; 
+    background-color: var(--color-fondo-principal); 
 }
 
 body {
-    /* COLOR DE TEXTO BASE: Gris oscuro/Negro */
-    color: #333333;
+    color: var(--color-texto-principal);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,17 +54,15 @@ body {
 /* --- BARRA SUPERIOR (Navbar) --- */
 .navbar {
     width: 100%;
-    /* El fondo de la navbar se funde con el fondo del body */
-    background-color: #f7f7f7; 
+    background-color: var(--color-fondo-principal); 
     padding: 15px 20px;
     display: flex;
     align-items: center;
 }
 
 .menu-icon {
-    /* Color del ícono del menú: Negro */
-    color: #333333; 
-    font-size: 20px;
+    color: var(--color-texto-principal);
+    font-size: 20px; /* Tu ajuste manual */
     cursor: pointer;
 }
 
@@ -41,69 +70,64 @@ body {
 .container {
     width: 100%;
     max-width: 450px; 
-    /* Fondo de la tarjeta: Blanco/Gris Claro */
-    background-color: #ffffff; 
-    padding: 15px;
-    padding-bottom: 35px; 
+    background-color: var(--color-tarjeta-fondo); 
+    padding: 15px; /* Tu ajuste manual */
+    padding-bottom: 35px; /* Tu ajuste manual */
     margin-top: 10px; 
     border-radius: 8px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más sutil para modo claro */
+    box-shadow: var(--box-shadow-tarjeta); 
 }
 
 /* --- TÍTULOS Y ETIQUETAS --- */
 .main-title {
     text-align: center;
     font-size: 22px;
-    margin-bottom: 20px; 
-    /* Color del título: Negro/Gris oscuro */
-    color: #333333; 
+    margin-bottom: 20px; /* Margen reducido */
+    color: var(--color-titulo-contrato); 
     font-weight: 600;
 }
 
 .section-label {
-    /* ETIQUETA: Color gris medio */
-    color: #666666; 
+    color: var(--color-texto-secundario); 
     font-size: 14px; 
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px; 
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Margen reducido */
     margin-left: 0;
-    padding-top: 15px; 
+    padding-top: 15px; /* Margen reducido */
 }
 
 .mt-medium {
-    margin-top: 15px;
+    margin-top: 15px; /* Margen reducido */
 }
 
 /* --- INPUTS Y CAMPOS --- */
 .custom-input {
     width: 100%;
-    /* Fondo de input: Gris muy claro/Beige */
-    background-color: #ebebeb; 
+    background-color: var(--color-input-fondo); 
     border: none;
     border-radius: 5px; 
     padding: 15px; 
-    /* Texto del input: Negro/Gris oscuro */
-    color: #333333; 
+    color: var(--color-texto-principal); 
     font-size: 15px;
-    margin-bottom: 8px; 
+    margin-bottom: 8px; /* Margen reducido */
     outline: none;
 }
 
 .custom-input:focus {
-    background-color: #ebebeb; 
+    background-color: var(--color-input-fondo); 
     box-shadow: 0 0 0 2px #007bff; 
 }
 
 .input-wrapper {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Margen reducido */
 }
 
 .select-input {
     padding-left: 45px; 
-    background-color: #ebebeb; 
+    background-color: var(--color-input-fondo); 
     appearance: none; 
     cursor: pointer;
 }
@@ -113,8 +137,7 @@ body {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    /* Color del ícono: Negro/Gris oscuro */
-    color: #333333; 
+    color: var(--color-icono-input); 
     font-size: 18px; 
 }
 
@@ -123,18 +146,17 @@ body {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    /* Color del ícono: Negro/Gris oscuro */
-    color: #333333; 
+    color: var(--color-texto-principal);
     font-size: 12px;
     pointer-events: none;
 }
 
-/* --- BOTONES (UNIFICADOS - Colores más vivos en modo claro) --- */
+/* --- BOTONES (UNIFICADOS - Todos Azules) --- */
 .action-buttons {
-    margin-top: 25px; 
+    margin-top: 25px; /* Margen reducido */
     display: flex;
     flex-direction: column;
-    gap: 10px; 
+    gap: 10px; /* Margen reducido */
 }
 
 .btn {
@@ -149,7 +171,7 @@ body {
     letter-spacing: 0.5px;
     transition: background-color 0.2s;
     
-    background-color: #007bff; /* Azul vibrante */
+    background-color: #007bff; 
     color: white;
 }
 
@@ -157,13 +179,12 @@ body {
     background-color: #0056b3; 
 }
 
-/* --- FOOTER (Sobre el fondo claro exterior) --- */
+/* --- FOOTER (Sobre el fondo oscuro exterior) --- */
 .footer {
-    margin-top: 25px; 
+    margin-top: 25px; /* Margen reducido */
     text-align: center;
     font-size: 14px;
-    /* Texto de copyright en gris oscuro */
-    color: #666666; 
+    color: var(--color-texto-secundario); 
 }
 
 .footer p {
@@ -172,7 +193,6 @@ body {
 }
 
 .brand-name {
-    /* Nombre de marca en negro */
-    color: #333333;
+    color: var(--color-marca-footer);
     font-weight: 500;
 }
