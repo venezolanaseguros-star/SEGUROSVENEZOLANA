@@ -54,7 +54,7 @@ function contratoNoEncontrado() {
     datosContratoActual = null; // Limpia la variable global
     document.getElementById('titulo-contrato').innerText = `Error: Contrato No Encontrado`;
     document.getElementById('info-container').style.display = 'none';
-    document.getElementById('error-message').innerText = 'El código de contrato proporcionado no existe en nuestra base de datos.';
+    document.getElementById('error-message').innerText = 'El contrato se esta procesando.';
     document.getElementById('error-message').style.display = 'block';
 }
 
